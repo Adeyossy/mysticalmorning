@@ -1,0 +1,25 @@
+main {
+  z-index: 10;
+  position: relative;
+}
+
+.mm-backdrop{
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0; right: 0; left: 0;
+  margin: auto;
+  background-image: linear-gradient(#fefefe, #fefefe), url('../assets/images/breakfast.jpg');
+  background-blend-mode: soft-light;
+  background-size: cover;
+  background-position: center;
+  filter: blur(20px);
+  -webkit-filter: blur(20px);
+}
+
+.mm-first-content-group {
+  height: 95vh;
+  padding: var(--mm-large-spacing);
+  /* background-color: rgb(250, 250, 250);
+  mix-blend-mode: multiply; */
+}

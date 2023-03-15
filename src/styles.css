@@ -1,1 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+:root{
+  --mm-small-spacing: 13.5px;
+  --mm-default-spacing: 27px;
+  --mm-large-spacing: 54px;
+  --mm-xl-spacing: 108px;
+}
