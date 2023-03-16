@@ -9,17 +9,47 @@ main {
   position: absolute;
   top: 0; right: 0; left: 0;
   margin: auto;
-  background-image: linear-gradient(#fefefe, #fefefe), url('../assets/images/breakfast.jpg');
+  background-image: linear-gradient(rgba(130, 255, 147, 0.75), rgba(130, 255, 147, 0.75)), url('../assets/images/breakfast.jpg');
   background-blend-mode: soft-light;
   background-size: cover;
   background-position: center;
-  filter: blur(20px);
-  -webkit-filter: blur(20px);
+  filter: blur(30px);
+  -webkit-filter: blur(30px);
 }
 
-.mm-first-content-group {
+.container-fluid.mm-first-content-group {
   height: 95vh;
-  padding: var(--mm-large-spacing);
-  /* background-color: rgb(250, 250, 250);
-  mix-blend-mode: multiply; */
+}
+
+.mm-first-content-group > .row {
+  height: 100%;
+}
+
+.mm-home-description {
+  height: 100%;
+  padding: var(--mm-default-spacing);
+}
+
+.mm-first-content-button {
+  padding-bottom: var(--mm-small-spacing);
+}
+
+.mm-grid-images{
+  padding: 2px;
+}
+
+.mm-grid-images-group {
+  margin-top: 64px;
+}
+
+@media only screen and (min-width: 768px) {
+  .mm-home-description{
+    padding: var(--mm-large-spacing);
+  }
+  
+  .mm-first-content-button {
+    padding-right: var(--mm-default-spacing);
+    padding-bottom: 0px;
+  }
+
 }

@@ -3,4 +3,102 @@
   --mm-default-spacing: 27px;
   --mm-large-spacing: 54px;
   --mm-xl-spacing: 108px;
+  --mm-primary-text-color: black;
+  --mm-primary-text-color-contrast: white;
+  --mm-smaller-subtitle-color: #4d4d4d;
+  --mm-text-color: black;
+  --mm-primary-color: rgb(255, 255, 255);
+  --mm-primary-color-contrast: rgb(0, 51, 27);
+  --mm-accent-color: rgb(237, 28, 36);
+  --mm-grey-color: rgb(128, 128, 128);
+  --mm-nav-background-color: rgba(245, 245, 245, 0.5);
+}
+
+header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 20;
+  background-color: var(--mm-nav-background-color);
+}
+
+h1, h2, h3, h4, h5, h6, button {
+  font-family: 'Jost', Cambria, sans-serif;
+  font-weight: 900;
+  margin: 0;
+  color: var(--mm-text-color);
+}
+
+h1.mm-business-name{
+  font-family: 'Raleway', Cambria, sans-serif;
+}
+
+p {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  line-height: 1.1em;
+  color: var(--mm-text-color);
+}
+
+button {
+  height: 64px;
+  color: var(--mm-primary-text-color-contrast);
+  background-color: var(--mm-primary-color-contrast);
+  border: 3px solid var(--mm-primary-color-contrast);
+  transition: background-color 250ms linear, transform 250ms linear;
+}
+
+button.mm-button-alternate {
+  color: var(--mm-primary-text-color);
+  background-color: transparent;
+}
+
+button:hover{
+  background-color: var(--mm-accent-color);
+  border-color: var(--mm-accent-color);
+  color: var(--mm-primary-text-color-contrast);
+}
+
+button:active{
+  transform: scale(0.95);
+}
+
+a {
+  color: var(--mm-grey-color);
+  text-decoration: none;
+  font-family: 'Jost', sans-serif;
+}
+
+.mm-header {
+  font-size: 54pt;
+  line-height: 1em;
+  margin-bottom: var(--mm-small-spacing);
+  letter-spacing: -0.5px;
+}
+
+p.mm-subtitle{
+  font-size: 25.5pt;
+  letter-spacing: -0.6px;
+}
+
+p.mm-smaller-subtitle{
+  font-size: 12pt;
+  color: var(--mm-smaller-subtitle-color);
+}
+
+@media only screen and (min-width: 768px) {
+  .mm-header {
+    font-size: 60pt;
+    margin-bottom: 0;
+  }
+  
+  p.mm-subtitle{
+    font-size: 33pt;
+    letter-spacing: -0.6px;
+  }
+
+  p.mm-smaller-subtitle{
+    font-size: 22pt;
+    color: var(--mm-smaller-subtitle-color);
+  }
+
 }

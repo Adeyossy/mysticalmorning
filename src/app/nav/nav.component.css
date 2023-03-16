@@ -1,0 +1,8 @@
+.mm-logo {
+  height: 32px;
+  width: auto;
+}
+
+.row > .mm-nav-item-group {
+  padding: var(--mm-small-spacing);
+}

@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'mysticalmorning';
+  products = [
+    'sandwich', 'chocolate', 'jollof_rice', 'coffee', 'fries', 'sandwich_chocolate_meal', 'fried_rice', 'drink', 'sandwiches'
+  ];
 }
