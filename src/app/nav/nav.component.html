@@ -1,6 +1,6 @@
 <nav>
   <div class="container-fluid p-0">
-    <div class="row g-0">
+    <div class="row g-0 align-items-center">
       <div class="col-md-4 col-lg-6 mm-nav-item-group">
         <a routerLink="/">
           <img src="../../assets/images/logo.png" alt="Mystical Morning Logo" class="mm-logo">
@@ -8,7 +8,7 @@
       </div>
       <div class="col-lg-5">
         <div class="container-fluid p-0 d-none d-lg-block">
-          <div class="row g-0">
+          <div class="row g-0 align-items-center">
             <div *ngFor="let link of linkItems" class="col-lg-3 mm-nav-item-group">
               <a routerLink="/{{link}}">{{ link | uppercase }}</a>
             </div>

@@ -11,7 +11,7 @@
   --mm-primary-color-contrast: rgb(0, 51, 27);
   --mm-accent-color: rgb(237, 28, 36);
   --mm-grey-color: rgb(128, 128, 128);
-  --mm-nav-background-color: rgba(245, 245, 245, 0.5);
+  --mm-nav-background-color: rgba(245, 245, 245, 0.7);
 }
 
 header {
@@ -87,17 +87,17 @@ p.mm-smaller-subtitle{
 
 @media only screen and (min-width: 768px) {
   .mm-header {
-    font-size: 60pt;
+    font-size: 54pt;
     margin-bottom: 0;
   }
   
   p.mm-subtitle{
-    font-size: 33pt;
+    font-size: 27pt;
     letter-spacing: -0.6px;
   }
 
   p.mm-smaller-subtitle{
-    font-size: 22pt;
+    font-size: 18pt;
     color: var(--mm-smaller-subtitle-color);
   }
 

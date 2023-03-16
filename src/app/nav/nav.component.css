@@ -1,8 +1,18 @@
 .mm-logo {
-  height: 32px;
+  height: 36px;
   width: auto;
 }
 
-.row > .mm-nav-item-group {
+.row:first-child > .mm-nav-item-group:first-child {
+  padding: 8px 8px 8px var(--mm-small-spacing);
+}
+
+.row > .mm-nav-item-group:last-child {
   padding: var(--mm-small-spacing);
+}
+
+@media only screen and (min-width: 768px) {
+  .row > .mm-nav-item-group:first-child {
+    padding-left: var(--mm-large-spacing);
+  }
 }
