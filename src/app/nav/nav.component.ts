@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class NavComponent implements OnInit {
 
   linkItems = ['meals', 'menu', 'nutrition', 'order'];
+
   constructor() { }
 
   ngOnInit(): void {

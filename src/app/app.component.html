@@ -12,10 +12,10 @@
           <div class="container-fluid p-0">
             <div class="row g-0">
               <div class="col-md-5 mm-first-content-button">
-                <button class="mm-button w-100">QUICK PREORDER</button>
+                <button class="mm-button w-100" (click)="toggleModal()">QUICK PREORDER</button>
               </div>
               <div class="col-md-5 mm-first-content-button">
-                <button class="mm-button mm-button-alternate w-100">SUBSCRIBE</button>
+                <button class="mm-button mm-button-alternate w-100" (click)="toggleModal()">SUBSCRIBE</button>
               </div>
             </div>
           </div>
@@ -36,3 +36,4 @@
 <div class="mm-backdrop">
   <div class="mm-backdrop-image"></div>
 </div>
+<app-modal *ngIf="isModalShown" [message]="preorderMessage" (modalCloser)="toggleModal()"></app-modal>

@@ -1,0 +1,45 @@
+.mm-modal-container {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  background-color: var(--mm-modal-backdrop-color);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 15;
+}
+
+.mm-modal-container > .container-fluid {
+  height: fit-content;
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+  margin: auto;
+}
+
+.mm-modal {
+  width: 100%;
+  background-color: var(--mm-modal-background-color);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.mm-modal-details {
+  padding: var(--mm-default-spacing);
+}
+
+.mm-header.mm-modal-header {
+  font-size: 12pt;
+  font-weight: 900;
+}
+
+.mm-buttons-container {
+  background-color: var(--mm-nav-background-color);
+}
+
+.mm-button-container {
+  padding: var(--mm-small-spacing);
+}
+
+button.mm-button {
+  width: 100%;
+}

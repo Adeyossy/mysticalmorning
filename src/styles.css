@@ -7,11 +7,15 @@
   --mm-primary-text-color-contrast: white;
   --mm-smaller-subtitle-color: #4d4d4d;
   --mm-text-color: black;
-  --mm-primary-color: rgb(255, 255, 255);
+  --mm-primary-color: rgb(140, 198, 63);
   --mm-primary-color-contrast: rgb(0, 51, 27);
   --mm-accent-color: rgb(237, 28, 36);
   --mm-grey-color: rgb(128, 128, 128);
   --mm-nav-background-color: rgba(245, 245, 245, 0.7);
+  --mm-modal-backdrop-color: rgba(0, 0, 0, 0.65);
+  --mm-modal-background-color: rgba(250, 250, 250, 0.8);
+  --mm-modal-button-container-color: rgba(230, 230, 230);
+  --mm-black: rgba(26, 26, 26);
 }
 
 header {
@@ -33,7 +37,7 @@ h1.mm-business-name{
   font-family: 'Raleway', Cambria, sans-serif;
 }
 
-p {
+p, textarea, input {
   font-family: Georgia, 'Times New Roman', Times, serif;
   line-height: 1.1em;
   color: var(--mm-text-color);
@@ -53,8 +57,8 @@ button.mm-button-alternate {
 }
 
 button:hover{
-  background-color: var(--mm-accent-color);
-  border-color: var(--mm-accent-color);
+  background-color: var(--mm-primary-color);
+  border-color: var(--mm-primary-color);
   color: var(--mm-primary-text-color-contrast);
 }
 
@@ -68,11 +72,23 @@ a {
   font-family: 'Jost', sans-serif;
 }
 
+textarea {
+  resize: none;
+  width: 100%;
+  border: 2px solid var(--mm-primary-color-contrast);
+  background-color: transparent;
+  padding: var(--mm-small-spacing);
+}
+
 .mm-header {
-  font-size: 54pt;
+  font-size: 16pt;
   line-height: 1em;
   margin-bottom: var(--mm-small-spacing);
   letter-spacing: -0.5px;
+}
+
+.mm-header.mm-business-name {
+  font-size: 54pt;
 }
 
 p.mm-subtitle{
@@ -86,7 +102,7 @@ p.mm-smaller-subtitle{
 }
 
 @media only screen and (min-width: 768px) {
-  .mm-header {
+  .mm-header.mm-business-name {
     font-size: 54pt;
     margin-bottom: 0;
   }
