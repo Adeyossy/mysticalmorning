@@ -3,6 +3,11 @@ main {
   position: relative;
 }
 
+.mm-full-viewport {
+  height: 100vh;
+  overflow-y: hidden;
+}
+
 .mm-backdrop{
   width: 100%;
   height: 100vh;

@@ -80,6 +80,11 @@ textarea {
   padding: var(--mm-small-spacing);
 }
 
+img {
+  width: 100%;
+  height: auto;
+}
+
 .mm-header {
   font-size: 16pt;
   line-height: 1em;
@@ -116,5 +121,4 @@ p.mm-smaller-subtitle{
     font-size: 18pt;
     color: var(--mm-smaller-subtitle-color);
   }
-
 }
