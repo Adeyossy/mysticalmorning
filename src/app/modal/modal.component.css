@@ -12,8 +12,9 @@
 .mm-modal-container > .container-fluid {
   height: fit-content;
   position: absolute;
-  top: 0; bottom: 0; left: 0; right: 0;
+  bottom: 0; left: 0; right: 0;
   margin: auto;
+  animation: slideUp 200ms ease-in 1 ;
 }
 
 .mm-modal {
@@ -42,4 +43,20 @@
 
 button.mm-button {
   width: 100%;
+}
+
+@media only screen and (min-width: 800px) {
+  .mm-modal-container > .container-fluid {
+    top: 0;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(25%);
+  }
+
+  to {
+    transform: translateY(0px);
+  }
 }
