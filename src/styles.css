@@ -93,17 +93,18 @@ img {
 }
 
 .mm-header.mm-business-name {
-  font-size: 54pt;
+  font-size: 57pt;
 }
 
 p.mm-subtitle{
-  font-size: 25.5pt;
+  font-size: 23pt;
   letter-spacing: -0.6px;
 }
 
 p.mm-smaller-subtitle{
   font-size: 12pt;
   color: var(--mm-smaller-subtitle-color);
+  margin-bottom: var(--mm-default-spacing);
 }
 
 @media only screen and (min-width: 768px) {

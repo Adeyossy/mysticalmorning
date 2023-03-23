@@ -2,9 +2,9 @@
   <app-nav></app-nav>
 </header>
 <main [ngClass]="isModalShown ? 'mm-full-viewport' : ''">
-  <div class="container-fluid mm-first-content-group">
+  <div class="container-fluid mm-first-content-group p-0">
     <div class="row g-0">
-      <div class="col-lg-6 d-flex align-items-center mm-home-description">
+      <div class="col-lg-8 col-xl-6 d-flex align-items-center mm-home-description">
         <div class="mm-home-description-details w-100">
           <h1 class="mm-header mm-business-name">Mystical Morning</h1>
           <p class="mm-subtitle">A healthy, affordable breakfast service for busy people.</p>
@@ -21,10 +21,13 @@
           </div>
         </div>
       </div>
-      <div class="offset-lg-1 col-lg-5 d-flex">
+      <div class="col-lg-4 offset-xl-1 col-xl-5 d-flex">
         <div class="container-fluid p-0 mm-grid-images-group">
           <div class="row g-0">
-            <div class="col-6 col-xl-4 mm-grid-images" *ngFor="let product of products">
+            <div class="col-6 col-md-4 col-lg-6 col-xl-4 mm-grid-images" *ngFor="let product of products">
+              <img src="../assets/images/{{product}}.jpg" alt="{{product}} picture" class="img-fluid">
+            </div>
+            <div class="col-6 col-md-4 col-xl-4 mm-grid-images d-none d-xl-block" *ngFor="let product of more_products">
               <img src="../assets/images/{{product}}.jpg" alt="{{product}} picture" class="img-fluid">
             </div>
           </div>

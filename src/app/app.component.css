@@ -33,10 +33,11 @@ main {
 .mm-home-description {
   height: 100%;
   padding: var(--mm-default-spacing);
+  padding-top: var(--mm-large-spacing);
 }
 
 .mm-first-content-button {
-  padding-bottom: var(--mm-small-spacing);
+  padding-bottom: var(--mm-default-spacing);
 }
 
 .mm-grid-images{
