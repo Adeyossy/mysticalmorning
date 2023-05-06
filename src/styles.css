@@ -16,6 +16,7 @@
   --mm-modal-background-color: rgba(250, 250, 250, 0.8);
   --mm-modal-button-container-color: rgba(230, 230, 230);
   --mm-black: rgba(26, 26, 26);
+  --mm-default-background-color: rgba(245, 245, 245, 0.6);
 }
 
 header {

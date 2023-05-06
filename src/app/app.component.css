@@ -23,7 +23,7 @@ main {
 }
 
 .container-fluid.mm-first-content-group {
-  height: 95vh;
+  height: auto;
 }
 
 .mm-first-content-group > .row {
@@ -31,7 +31,7 @@ main {
 }
 
 .mm-home-description {
-  height: 100%;
+  height: 100vh;
   padding: var(--mm-default-spacing);
   padding-top: var(--mm-large-spacing);
 }
@@ -46,6 +46,23 @@ main {
 
 .mm-grid-images-group {
   margin-top: 64px;
+}
+
+.mm-second-content-group {
+  background-image: url('../assets/images/carrots.jpg');
+  background-size: cover;
+  background-position-x: right;
+}
+
+.mm-vegetables-container {
+  height: auto;
+  padding: var(--mm-xl-spacing) 0;
+}
+
+.mm-vegetables-details {
+  padding: var(--mm-default-spacing);
+  backdrop-filter: blur(5px);
+  background-color: var(--mm-default-background-color);
 }
 
 @media only screen and (min-width: 768px) {
