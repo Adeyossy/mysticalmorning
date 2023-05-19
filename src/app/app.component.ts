@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   products = [
-    'sandwich', 'chocolate', 'jollof_rice', 'coffee', 'fries', 'sandwich_chocolate_meal', 'fried_rice', 'drink'
+    'sandwich', 'chocolate', 'coffee', 'fries', 'sandwich_chocolate_meal', 'sandwiches'
   ];
 
   more_products = ['sandwiches'];

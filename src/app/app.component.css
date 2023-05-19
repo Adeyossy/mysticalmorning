@@ -46,12 +46,18 @@ main {
 
 .mm-grid-images-group {
   margin-top: 64px;
+  overflow-y: hidden;
 }
 
 .mm-second-content-group {
-  background-image: url('../assets/images/carrots.jpg');
+  background-image: linear-gradient(rgba(130, 255, 147, 0.5), rgba(130, 255, 147, 0.5)), url('../assets/images/veggies.jpg');
   background-size: cover;
-  background-position-x: right;
+  background-position: center;
+  background-blend-mode: soft-light;
+}
+
+.mm-second-content-group > .container-fluid {
+  backdrop-filter: blur(5px);
 }
 
 .mm-vegetables-container {
