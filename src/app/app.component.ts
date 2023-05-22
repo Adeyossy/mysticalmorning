@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Product } from './models/product';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,29 @@ export class AppComponent {
   products = [
     'sandwich', 'chocolate', 'another_sandwich', 'coffee', 'sandwich_chocolate_meal', 'sandwiches'
   ];
+
+  productSandwich: Product = {
+    name: 'Sandwich',
+    category: 'Food',
+    price: 399,
+    description: ''
+  }
+
+  productChocolate: Product = {
+    name: 'Chocolate',
+    category: 'Drink',
+    price: 399,
+    description: ''
+  }
+
+  productMeal: Product = {
+    name: 'Sandwich and Beverage',
+    category: 'Meal',
+    price: 799,
+    description: ''
+  }
+
+  affordableProducts = [this.productSandwich, this.productChocolate, this.productMeal]
 
   more_products = ['fries'];
 

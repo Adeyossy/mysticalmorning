@@ -79,6 +79,11 @@ main {
   background-color: var(--mm-default-background-color);
 }
 
+.mm-section-break {
+  height: 1px;
+  background-color: var(--mm-default-background-color);
+}
+
 @media only screen and (min-width: 768px) {
   .mm-home-description{
     padding: var(--mm-large-spacing);

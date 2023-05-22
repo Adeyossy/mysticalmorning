@@ -1,0 +1,18 @@
+.mm-product-container {
+    background-color: var(--mm-modal-background-color);
+}
+
+.mm-product-image-container {
+    padding: var(--mm-default-spacing);
+}
+
+.mm-product-details {
+    padding: var(--mm-small-spacing);
+    background-color: var(--mm-modal-button-container-color);
+    /* border: 2px solid var(--mm-primary-color-contrast); */
+}
+
+h2.mm-product-details-header {
+    color: var(--mm-primary-color-contrast);
+    font-size: 18px;
+}

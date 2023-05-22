@@ -1,1 +1,9 @@
-<p>product works!</p>
+<div class="mm-product-container">
+    <div class="mm-product-image-container">
+        <img src="../../../assets/images/product_{{getProductName(product.name) | lowercase}}.png" alt="{{product.name}}" class="mm-product-image img-fluid">
+    </div>
+    <div class="mm-product-details">
+        <h2 class="mm-product-details-header">{{ product.name }}</h2>
+        <p class="mm-product-details-header">{{ product.price | currency:'en-NGN' }}</p>
+    </div>
+</div>
