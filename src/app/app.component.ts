@@ -7,10 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   products = [
-    'sandwich', 'chocolate', 'coffee', 'fries', 'sandwich_chocolate_meal', 'sandwiches'
+    'sandwich', 'chocolate', 'another_sandwich', 'coffee', 'sandwich_chocolate_meal', 'sandwiches'
   ];
 
-  more_products = ['sandwiches'];
+  more_products = ['fries'];
 
   preorderMessage = 'Hello, I would like to order sandwich and coffee drink against tomorrow morning. I would like it delivered by 8am. My location is ________';
 
