@@ -41,6 +41,8 @@ export class AppComponent {
   subscribeMessage = 'Hello, I would like to subscribe to your breakfast service. I would like to have sandwich and coffee (insert any other dish on our menu) every morning at 8.00am from Monday to Friday. You can deliver to _____________ location.';
   
   isModalShown = false;
+
+  stars = new Array(5);
   
   toggleModal(): void {
     this.isModalShown = !this.isModalShown;

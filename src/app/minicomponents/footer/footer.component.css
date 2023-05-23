@@ -14,13 +14,6 @@ p {
     padding: 0 var(--mm-default-spacing);
 }
 
-i {
-    display: inline-block;
-    font-size: 21px;
-    line-height: 1;
-    padding: 4px;
-}
-
 #contrast {
     color: var(--mm-primary-color-contrast);
 }

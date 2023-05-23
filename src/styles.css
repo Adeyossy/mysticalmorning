@@ -7,7 +7,7 @@
   --mm-primary-text-color-contrast: white;
   --mm-smaller-subtitle-color: #4d4d4d;
   --mm-text-color: black;
-  --mm-primary-color: rgb(128, 255, 128);
+  --mm-primary-color: rgb(96, 255, 96);
   --mm-primary-color-light: rgb(200, 255, 200);
   --mm-primary-color-contrast: rgb(0, 51, 27);
   --mm-accent-color: rgb(237, 28, 36);
@@ -91,6 +91,12 @@ img {
   height: auto;
 }
 
+i {
+  font-size: 21px;
+  line-height: 1;
+  padding: 4px;
+}
+
 .mm-header {
   font-size: 16pt;
   line-height: 1em;
@@ -117,6 +123,10 @@ p.mm-smaller-subtitle{
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+}
+
+.accent {
+  color: var(--mm-accent-color) !important;
 }
 
 *:disabled, *:disabled:hover {

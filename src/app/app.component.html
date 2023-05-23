@@ -36,10 +36,39 @@
     </div>
   </div>
   <div class="mm-section-break"></div>
+  <div class="mm-content-group mm-full-content-group mm-second-content-group" id="reviews">
+    <div class="container-fluid p-0">
+      <div class="row g-0 justify-content-center">
+        <div class="col-md-6 col-lg-4 mm-section-container text-center">
+          <div class="mm-reviews-stars">
+            <i class="bi bi-star-fill" *ngFor="let star of stars"></i>
+          </div>
+          <h1>4.9 / 5</h1>
+          <p class="mm-smaller-subtitle accent">stars</p>
+        </div>
+        <div class="col-md-6 col-lg-4 mm-section-container text-center border-start border-end border-light">
+          <div class="mm-reviews-orders">
+            <h1 class="mm-header mb-1">Over</h1>
+            <h1>250 ORDERS</h1>
+            <p class="mm-smaller-subtitle accent">Fulfilled</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mm-section-container text-center">
+          <div class="mm-reviews-orders">
+            <h1 class="mm-header mb-1">Over</h1>
+            <h1>1000 MEALS</h1>
+            <p class="mm-smaller-subtitle accent">Delivered</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mm-section-break"></div>
   <div class="mm-content-group mm-full-content-group mm-second-content-group" id="vegetables">
     <div class="container-fluid">
       <div class="row g-0">
-        <div class="offset-1 col-10 offset-lg-3 col-lg-6 mm-section-container d-flex justify-content-center align-items-center">
+        <div
+          class="offset-1 col-10 offset-lg-3 col-lg-6 mm-section-container d-flex justify-content-center align-items-center">
           <div class="mm-section-details" #section1>
             <div class="mm-section-title">
               <h1 class="mm-section-title-header">HEALTHY MEALS</h1>
@@ -47,10 +76,12 @@
             <hr>
             <div class="mm-section-description">
               <p class="mm-section-description-paragraph mm-smaller-subtitle">
-                Each meal is made with vegetables that keep your skin fresh, your gut cleansed and protect your overall health.
+                Each meal is made with vegetables that keep your skin fresh, your gut cleansed and protect your overall
+                health.
               </p>
               <p class="mm-section-description-paragraph mm-smaller-subtitle">
-                Vegetables in each of our meals consist of carrots, green beans and cabbage which are sourced directly from the farmer's market, making sure it is natural and always fresh. 
+                Vegetables in each of our meals consist of carrots, green beans and cabbage which are sourced directly
+                from the farmer's market, making sure it is natural and always fresh.
               </p>
             </div>
           </div>
@@ -70,13 +101,15 @@
             <hr>
             <div class="mm-section-description">
               <p class="mm-section-description-paragraph mm-smaller-subtitle">
-                We aim to serve you. Each meal we offer delivers the exceptional value at the cheapest price possible. Tastes like mum's, made with love and affordable for all.
+                We aim to serve you. Each meal we offer delivers the exceptional value at the cheapest price possible.
+                Tastes like mum's, made with love and affordable for all.
               </p>
             </div>
           </div>
           <div class="container-fluid px-0">
             <div class="row g-0 justify-content-center">
-              <div class="col-6 col-md-4 mt-3 p-1" *ngFor="let product of affordableProducts, index as i" [ngClass]="i > 1 ? 'd-none d-md-block' : '' ">
+              <div class="col-6 col-md-4 mt-3 p-1" *ngFor="let product of affordableProducts, index as i"
+                [ngClass]="i > 1 ? 'd-none d-md-block' : '' ">
                 <app-product [product]="product"></app-product>
               </div>
             </div>

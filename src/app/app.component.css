@@ -36,6 +36,10 @@ main {
   padding-top: var(--mm-large-spacing);
 }
 
+.mm-reviews-stars i {
+  font-size: 32px;
+}
+
 .mm-first-content-button {
   padding-bottom: var(--mm-default-spacing);
 }
@@ -63,6 +67,11 @@ main {
   background-image: linear-gradient(rgba(130, 255, 147, 0.4), rgba(130, 255, 147, 0.4)), url('../assets/images/affordable_bg.jpg');
 }
 
+#reviews {
+  color: black;
+  background-color: var(--mm-primary-color);
+}
+
 .mm-second-content-group > .container-fluid {
   padding: var(--mm-small-spacing) 0;
 }
@@ -79,8 +88,6 @@ main {
   /* opacity: 0.5; */
   animation: animateSectionDetails 200ms ease-in 100ms 1;
 }
-
-
 
 .mm-section-break {
   height: 1px;
