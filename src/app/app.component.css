@@ -52,20 +52,19 @@ main {
 .mm-second-content-group {
   background-size: cover;
   background-position: center;
-  background-blend-mode: soft-light;
+  background-blend-mode: overlay;
 }
 
 #vegetables {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('../assets/images/veggies.jpg');
+  background-image: linear-gradient(rgba(130, 255, 147, 0.4), rgba(130, 255, 147, 0.4)), url('../assets/images/veggies.jpg');
 }
 
 #affordable {
-  background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url('../assets/images/overlay_light.jpg');
+  background-image: linear-gradient(rgba(130, 255, 147, 0.4), rgba(130, 255, 147, 0.4)), url('../assets/images/veggies.jpg');
 }
 
 .mm-second-content-group > .container-fluid {
-  padding: var(--mm-large-spacing) 0;
-  backdrop-filter: blur(10px);
+  padding: var(--mm-small-spacing) 0;
 }
 
 .mm-section-container {
@@ -80,8 +79,8 @@ main {
 }
 
 .mm-section-break {
-  height: 1px;
-  background-color: var(--mm-default-background-color);
+  height: 2px;
+  background-color: var(--mm-primary-color);
 }
 
 @media only screen and (min-width: 768px) {

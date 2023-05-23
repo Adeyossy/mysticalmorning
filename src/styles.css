@@ -44,6 +44,10 @@ p, textarea, input {
   color: var(--mm-text-color);
 }
 
+p.number {
+  font-family: 'Times New Roman', Times, serif;
+}
+
 button {
   height: 64px;
   color: var(--mm-primary-text-color-contrast);
