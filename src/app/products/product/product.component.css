@@ -2,10 +2,6 @@
     background-color: var(--mm-modal-background-color);
 }
 
-.mm-product-image-container {
-    padding: var(--mm-default-spacing);
-}
-
 .mm-product-details {
     padding: var(--mm-small-spacing);
     background-color: var(--mm-modal-button-container-color);

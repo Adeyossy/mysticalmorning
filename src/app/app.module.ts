@@ -7,13 +7,17 @@ import { NavComponent } from './nav/nav.component';
 import { ModalComponent } from './modal/modal.component';
 import { FormsModule } from '@angular/forms';
 import { ProductComponent } from './products/product/product.component';
+import { PrivacyComponent } from './minicomponents/privacy/privacy.component';
+import { FooterComponent } from './minicomponents/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     ModalComponent,
-    ProductComponent
+    ProductComponent,
+    PrivacyComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

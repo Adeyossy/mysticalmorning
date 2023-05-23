@@ -8,7 +8,7 @@ import { Product } from './models/product';
 })
 export class AppComponent {
   products = [
-    'sandwich', 'chocolate', 'another_sandwich', 'coffee', 'sandwich_chocolate_meal', 'sandwiches'
+    'sandwich', 'product_chocolate', 'product_sandwich', 'coffee', 'sandwich_chocolate_meal', 'sandwiches'
   ];
 
   productSandwich: Product = {

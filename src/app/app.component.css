@@ -15,7 +15,7 @@ main {
   top: 0; right: 0; left: 0;
   margin: auto;
   background-image: linear-gradient(rgba(130, 255, 147, 0.5), rgba(130, 255, 147, 0.5)), url('../assets/images/breakfast.jpg');
-  background-blend-mode: soft-light;
+  background-blend-mode: hue;
   background-size: cover;
   background-position: center;
   filter: blur(15px);
