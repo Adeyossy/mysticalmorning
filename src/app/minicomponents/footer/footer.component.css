@@ -1,0 +1,42 @@
+.mm-footer {
+    padding: var(--mm-default-spacing) 0 0;
+    background-color: var(--mm-primary-color);
+}
+
+img {
+    width: 40%;
+    height: auto;
+}
+
+p {
+    font-family: 'ITC Avant Garde Pro Md', sans-serif;
+    font-size: 14px;
+    padding: 0 var(--mm-default-spacing);
+}
+
+i {
+    display: inline-block;
+    font-size: 21px;
+    line-height: 1;
+    padding: 4px;
+}
+
+#contrast {
+    color: var(--mm-primary-color-contrast);
+}
+
+#accent {
+    color: var(--mm-accent-color);
+}
+
+.mm-footer-contrast {
+    color: var(--mm-primary-color);
+    background-color: var(--mm-primary-color-contrast);
+    padding: var(--mm-default-spacing);
+}
+
+.mm-footer-contrast p {
+    color: inherit;
+    font-size: 16px;
+    margin: 0;
+}

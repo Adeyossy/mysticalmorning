@@ -7,7 +7,8 @@
   --mm-primary-text-color-contrast: white;
   --mm-smaller-subtitle-color: #4d4d4d;
   --mm-text-color: black;
-  --mm-primary-color: rgb(140, 198, 63);
+  --mm-primary-color: rgb(128, 255, 128);
+  --mm-primary-color-light: rgb(200, 255, 200);
   --mm-primary-color-contrast: rgb(0, 51, 27);
   --mm-accent-color: rgb(237, 28, 36);
   --mm-grey-color: rgb(128, 128, 128);
