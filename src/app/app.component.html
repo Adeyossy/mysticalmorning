@@ -1,5 +1,5 @@
 <header>
-  <app-nav></app-nav>
+  <app-nav (preorder)="toggleModal()" [isModalShown]="isModalShown"></app-nav>
 </header>
 <main [ngClass]="isModalShown ? 'mm-full-viewport' : ''">
   <div class="container-fluid mm-first-content-group p-0">
@@ -40,7 +40,7 @@
     <div class="container-fluid">
       <div class="row g-0">
         <div class="offset-1 col-10 offset-lg-3 col-lg-6 mm-section-container d-flex justify-content-center align-items-center">
-          <div class="mm-section-details">
+          <div class="mm-section-details" #section1>
             <div class="mm-section-title">
               <h1 class="mm-section-title-header">HEALTHY MEALS</h1>
             </div>
@@ -63,7 +63,7 @@
     <div class="container-fluid">
       <div class="row g-0">
         <div class="offset-1 col-10 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6 mm-section-container">
-          <div class="mm-section-details">
+          <div class="mm-section-details" #section2>
             <div class="mm-section-title">
               <h1 class="mm-section-title-header">AFFORDABLE MEALS</h1>
             </div>

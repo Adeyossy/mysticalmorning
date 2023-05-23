@@ -60,7 +60,7 @@ main {
 }
 
 #affordable {
-  background-image: linear-gradient(rgba(130, 255, 147, 0.4), rgba(130, 255, 147, 0.4)), url('../assets/images/veggies.jpg');
+  background-image: linear-gradient(rgba(130, 255, 147, 0.4), rgba(130, 255, 147, 0.4)), url('../assets/images/affordable_bg.jpg');
 }
 
 .mm-second-content-group > .container-fluid {
@@ -76,11 +76,27 @@ main {
   padding: var(--mm-default-spacing);
   backdrop-filter: blur(5px);
   background-color: var(--mm-default-background-color);
+  /* opacity: 0.5; */
+  animation: animateSectionDetails 200ms ease-in 100ms 1;
 }
 
+
+
 .mm-section-break {
-  height: 2px;
+  height: 1px;
   background-color: var(--mm-primary-color);
+}
+
+@keyframes animateSectionDetails {
+  from {
+    opacity: 0.5;
+    transform: translateY(32px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media only screen and (min-width: 768px) {

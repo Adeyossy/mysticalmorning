@@ -28,7 +28,7 @@ header {
 }
 
 h1, h2, h3, h4, h5, h6, button {
-  font-family: 'Jost', Cambria, sans-serif;
+  font-family: 'ITC Avant Garde Pro Md', Cambria, sans-serif;
   font-weight: 900;
   margin: 0;
   color: var(--mm-text-color);
@@ -110,6 +110,17 @@ p.mm-smaller-subtitle{
   font-size: 12pt;
   color: var(--mm-smaller-subtitle-color);
   margin-bottom: var(--mm-default-spacing);
+}
+
+.shorten {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+*:disabled, *:disabled:hover {
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 
 @media only screen and (min-width: 768px) {

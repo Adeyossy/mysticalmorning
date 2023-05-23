@@ -16,6 +16,11 @@ nav {
   padding: var(--mm-small-spacing);
 }
 
+button.mm-button {
+  height: auto;
+  padding: 8px 8px;
+}
+
 @media only screen and (min-width: 768px) {
   .row > .mm-nav-item-group:first-child {
     padding-left: var(--mm-large-spacing);

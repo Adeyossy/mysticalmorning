@@ -45,4 +45,8 @@ export class AppComponent {
   toggleModal(): void {
     this.isModalShown = !this.isModalShown;
   }
+
+  doStuff(): void {
+    console.log('loaded');
+  }
 }

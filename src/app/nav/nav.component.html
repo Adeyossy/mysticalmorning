@@ -9,8 +9,11 @@
       <div class="col-lg-5">
         <div class="container-fluid p-0 d-none d-lg-block">
           <div class="row g-0 align-items-center">
-            <div *ngFor="let link of linkItems" class="col-lg-3 mm-nav-item-group">
+            <div *ngFor="let link of linkItems" class="col-lg-3 mm-nav-item-group p-2">
               <a routerLink="/{{link}}">{{ link | uppercase }}</a>
+            </div>
+            <div class="col-lg-3 p-2">
+              <button class="mm-button" (click)="emitPreorder()" [disabled]="isModalShown">PREORDER</button>
             </div>
           </div>
         </div>
