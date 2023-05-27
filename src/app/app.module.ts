@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { DEFAULT_CURRENCY_CODE, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -24,7 +24,7 @@ import { FooterComponent } from './minicomponents/footer/footer.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [{provide: DEFAULT_CURRENCY_CODE, useValue:'NGN'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
