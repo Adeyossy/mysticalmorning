@@ -1,1 +1,152 @@
-/* You can add global styles to this file, and also import other style files */
+:root{
+  --mm-small-spacing: 13.5px;
+  --mm-default-spacing: 27px;
+  --mm-large-spacing: 54px;
+  --mm-xl-spacing: 108px;
+  --mm-primary-text-color: black;
+  --mm-primary-text-color-contrast: white;
+  --mm-smaller-subtitle-color: #4d4d4d;
+  --mm-text-color: black;
+  --mm-primary-color: rgb(96, 255, 96);
+  --mm-primary-color-light: rgb(200, 255, 200);
+  --mm-primary-color-contrast: rgb(0, 51, 27);
+  --mm-accent-color: rgb(237, 28, 36);
+  --mm-grey-color: rgb(128, 128, 128);
+  --mm-nav-background-color: rgba(245, 245, 245, 0.7);
+  --mm-modal-backdrop-color: rgba(0, 0, 0, 0.65);
+  --mm-modal-background-color: rgba(250, 250, 250, 0.8);
+  --mm-modal-button-container-color: rgba(230, 230, 230);
+  --mm-black: rgba(26, 26, 26);
+  --mm-default-background-color: rgba(245, 245, 245, 0.8);
+}
+
+header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 20;
+  background-color: var(--mm-nav-background-color);
+}
+
+h1, h2, h3, h4, h5, h6, button {
+  font-family: 'ITC Avant Garde Pro Md', Cambria, sans-serif;
+  font-weight: 900;
+  margin: 0;
+  color: var(--mm-text-color);
+}
+
+h1.mm-business-name{
+  font-family: 'Raleway', Cambria, sans-serif;
+}
+
+p, textarea, input {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  line-height: 1.1em;
+  color: var(--mm-text-color);
+}
+
+p.number {
+  font-family: 'Raleway', Times, serif;
+}
+
+button {
+  height: 64px;
+  color: var(--mm-primary-text-color-contrast);
+  background-color: var(--mm-primary-color-contrast);
+  border: 3px solid var(--mm-primary-color-contrast);
+  transition: background-color 250ms linear, transform 250ms linear;
+}
+
+button.mm-button-alternate {
+  color: var(--mm-primary-text-color);
+  background-color: transparent;
+}
+
+button:hover{
+  background-color: var(--mm-primary-color);
+  border-color: var(--mm-primary-color);
+  color: var(--mm-primary-text-color-contrast);
+}
+
+button:active{
+  transform: scale(0.95);
+}
+
+a {
+  color: var(--mm-grey-color);
+  text-decoration: none;
+  font-family: 'Jost', sans-serif;
+}
+
+textarea {
+  resize: none;
+  width: 100%;
+  border: 2px solid var(--mm-primary-color-contrast);
+  background-color: transparent;
+  padding: var(--mm-small-spacing);
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+i {
+  font-size: 21px;
+  line-height: 1;
+  padding: 4px;
+}
+
+.mm-header {
+  font-size: 16pt;
+  line-height: 1em;
+  margin-bottom: var(--mm-small-spacing);
+  letter-spacing: -0.5px;
+}
+
+.mm-header.mm-business-name {
+  font-size: 57pt;
+}
+
+p.mm-subtitle{
+  font-size: 23pt;
+  letter-spacing: -0.6px;
+}
+
+p.mm-smaller-subtitle{
+  font-size: 12pt;
+  color: var(--mm-smaller-subtitle-color);
+  margin-bottom: var(--mm-default-spacing);
+}
+
+.shorten {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.accent {
+  color: var(--mm-accent-color) !important;
+}
+
+*:disabled, *:disabled:hover {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+@media only screen and (min-width: 768px) {
+  .mm-header.mm-business-name {
+    font-size: 54pt;
+    margin-bottom: 0;
+  }
+  
+  p.mm-subtitle{
+    font-size: 27pt;
+    letter-spacing: -0.6px;
+  }
+
+  p.mm-smaller-subtitle{
+    font-size: 14pt;
+    color: var(--mm-smaller-subtitle-color);
+  }
+}

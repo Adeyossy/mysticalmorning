@@ -1,0 +1,24 @@
+<div class="mm-modal-container">
+  <div class="container-fluid p-0">
+    <div class="row g-0">
+      <div class="offset-md-2 col-md-8 offset-lg-3 col-lg-6 offset-xl-4 col-xl-4">
+        <div class="mm-modal">
+          <div class="mm-modal-details">
+            <h1 class="mm-header mm-modal-header">PREORDER MESSAGE</h1>
+            <textarea name="modaltext" id="modaltext" cols="30" rows="8" [(ngModel)]="message"></textarea>
+          </div>
+          <div class="container-fluid p-0 mm-buttons-container">
+            <div class="row g-0">
+              <div class="col-6 mm-button-container">
+                <a href="https://wa.me/2348071376213?text={{message}}"><button class="mm-button">PREORDER NOW</button></a>
+              </div>
+              <div class="col-6 mm-button-container">
+                <button class="mm-button mm-button-alternate" (click)="cancelModal()">CANCEL</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

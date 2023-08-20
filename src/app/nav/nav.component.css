@@ -1,0 +1,28 @@
+nav {
+  /* border-bottom: 1px solid var(--mm-grey-color); */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.mm-logo {
+  height: 36px;
+  width: auto;
+}
+
+.row:first-child > .mm-nav-item-group:first-child {
+  padding: 8px 8px 8px var(--mm-small-spacing);
+}
+
+.row > .mm-nav-item-group:last-child {
+  padding: var(--mm-small-spacing);
+}
+
+button.mm-button {
+  height: auto;
+  padding: 8px 8px;
+}
+
+@media only screen and (min-width: 768px) {
+  .row > .mm-nav-item-group:first-child {
+    padding-left: var(--mm-large-spacing);
+  }
+}
