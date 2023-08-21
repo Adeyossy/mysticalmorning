@@ -1,1 +1,20 @@
-<p>signup works!</p>
+<div class="mm-signup">
+  <h1 class="mm-header">Create An Account</h1>
+  <p>Sign up to enjoy the full benefits of Mystical Morning</p>
+  <br>
+  <div class="mm-signup-form">
+    <label for="email"><i class="bi bi-envelope-fill accent"></i> Email</label>
+    <input type="email" name="email" id="email" placeholder="e.g. youremailaddress@xxxx.com"
+      [(ngModel)]="email" required>    
+    <br>
+    <label for="password"><i class="bi bi-key-fill accent"></i> Password</label>
+    <input type="password" name="password" id="password"
+      [ngModel]="password" (ngModelChange)="updatePassword($event)" required>
+    <br>
+    <label for="repeatpassword"><i class="bi bi-key-fill accent"></i> Password</label>
+    <input type="password" name="repeatpassword" id="repeatpassword" placeholder=""
+      [(ngModel)]="repeatPassword" required>
+    <br>
+    <button><i class="bi accent" [ngClass]="processStarted ? 'bi-arrow-clockwise' : 'bi-shield-lock-fill'"></i> Login</button>
+  </div>
+</div>

@@ -1,12 +1,16 @@
 <div class="mm-login">
   <h1 class="mm-header">Login</h1>
   <p>Sign into Mystical Morning to continue</p>
+  <br>
   <div class="mm-login-form">
     <label for="email"><i class="bi bi-envelope-fill accent"></i> Email</label>
-    <input type="email" name="email" id="email" placeholder="e.g. youremailaddress@eemail.com">
+    <input type="email" name="email" id="email" placeholder="e.g. youremailaddress@xxxx.com"
+      [(ngModel)]="email" required>
+    
     <br>
     <label for="password"><i class="bi bi-key-fill accent"></i> Password</label>
-    <input type="password" name="password" id="password" placeholder="xxxxx">
+    <input type="password" name="password" id="password" placeholder="xxxxx"
+      [(ngModel)]="password" required>
     <br>
     <button><i class="bi accent" [ngClass]="processStarted ? 'bi-arrow-clockwise' : 'bi-shield-lock-fill'"></i> Login</button>
   </div>

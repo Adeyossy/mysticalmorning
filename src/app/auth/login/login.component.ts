@@ -7,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
   processStarted = false;
+  email = '';
+  password = '';
 
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  login() {}
 
 }
