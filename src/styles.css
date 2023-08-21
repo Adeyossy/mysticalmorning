@@ -97,6 +97,10 @@ i {
   padding: 4px;
 }
 
+.mm-accent-icon {
+  color: var(--mm-accent-color);
+}
+
 .mm-header {
   font-size: 16pt;
   line-height: 1em;
