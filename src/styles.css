@@ -78,12 +78,15 @@ a {
   font-family: 'Jost', sans-serif;
 }
 
-textarea {
-  resize: none;
+input, textarea {
   width: 100%;
   border: 2px solid var(--mm-primary-color-contrast);
   background-color: transparent;
   padding: var(--mm-small-spacing);
+}
+
+textarea {
+  resize: none;
 }
 
 img {

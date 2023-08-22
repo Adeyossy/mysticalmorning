@@ -2,7 +2,7 @@ import { Order } from "./order";
 
 export type Subscription = {
   userId: string;
-  subscriptionId: string;
+  id: string;
   dateCreated: number;
   dateCancelled: number;
   mondays: Order | null;
