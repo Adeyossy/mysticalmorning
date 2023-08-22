@@ -10,18 +10,21 @@ export class SubscriptionService {
 
   subscription: Subscription = {
     userId: '',
-    id: '',
-    dateCreated: 0,
-    dateCancelled: 0,
-    mondays: null,
-    tuesdays: null,
-    wednesdays: null,
-    thursdays: null,
-    fridays: null,
-    others: null
+    id: '', // set with doc() and setDoc()
+    dateCreated: 0, // set at the point of uploading to Firestore
+    dateCancelled: 0, // date when the person cancelled the subscription
+    durationInWeeks: 0,
+    mondays: null, // Monday orders, if any
+    tuesdays: null, // Tuesday orders, if any
+    wednesdays: null, // Wednesday orders, if any
+    thursdays: null, // Thursday orders, if any
+    fridays: null, // Friday orders, if any
+    others: null // Orders for other days, if any
   };
 
   collection = 'subscriptions';
+
+  selectedDays: string[] = [];
 
   constructor(private authService: AuthService) { }
 
@@ -30,5 +33,9 @@ export class SubscriptionService {
     //   userId:
     // }
     this.authService.getFirebaseUser$().pipe(concatMap(user => user ? user.uid : ''))
+  }
+
+  setOrder() {
+    // if (Mondays)
   }
 }

@@ -1,6 +1,6 @@
 export type Order = {
   userId: string;
-  orderId: string;
+  id: string;
   items: string[];
   orderDate: number;
   deliveryDate: number;
@@ -11,5 +11,5 @@ export type Order = {
   isConfirmed: boolean;
   isDelivered: boolean;
   isCancelled: boolean;
-  subscriptionId: string
+  subscriptionId: string;
 }
