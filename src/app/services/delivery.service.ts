@@ -13,7 +13,7 @@ export class DeliveryService {
 
   constructor(private authService: AuthService) { }
 
-  getDeliveryDetails$(): Observable<DocumentData[]> {
+  getAllDeliveryDetails$(): Observable<DocumentData[]> {
     return this.authService.getDocumentByUserId$(this.collection);
   }
 

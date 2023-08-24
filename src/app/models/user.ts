@@ -1,14 +1,16 @@
 export type User = {
-  userId: string;
+  id: string;
   subscribed: boolean; // Is there an active subscription?
   name: string;
   username: string;
   contactPhone: string;
   email: string;
   emailVerified: boolean;
-  facebookShare: boolean;
-  twitterShare: boolean;
-  instagramShare: boolean;
+  facebookShare: number[];
+  twitterShare: number[];
+  instagramShare: number[];
+  orders: string[];
+  subscriptions: string[];
   delivery: string[]; // contains deliveryIds stored in deliveries collection
 }
 

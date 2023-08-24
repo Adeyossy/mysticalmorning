@@ -6,6 +6,11 @@ export interface Product {
     description: string;
 }
 
+export interface ProductAndId {
+    id: string;
+    product: Product;
+}
+
 export interface ProductInOrder {
     productId: string;
     quantity: number;
