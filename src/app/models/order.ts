@@ -1,12 +1,15 @@
+import { Delivery } from "./delivery";
+import { ProductInOrder } from "./product";
+
 export type Order = {
   userId: string;
   id: string;
-  items: string[];
+  items: ProductInOrder[];
   orderDate: number;
   deliveryDate: number;
-  deliveryLocation: string;
-  deliveryContact: string;
-  price: number;
+  delivery: Delivery | null;
+  total: number;
+  deliveryFee: number;
   paymentMode: string;
   isConfirmed: boolean;
   isDelivered: boolean;

@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FirebaseApp, FirebaseOptions, initializeApp } from 'firebase/app';
+import { DocumentData, Firestore, collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
 import { Auth, User, UserCredential, createUserWithEmailAndPassword, getAuth, sendEmailVerification, signInWithEmailAndPassword } from 'firebase/auth';
-import { Observable, concatMap, from, map } from 'rxjs';
+import { Observable, concatMap, from, map, mergeMap } from 'rxjs';
+import { userIsNull } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +40,25 @@ export class AuthService {
           )
         })
       }));
+  }
+
+  getFirestore$(): Observable<Firestore> {
+    return this.getFirebaseApp$().pipe(map(app => getFirestore(app)));
+  }
+
+  getDocumentByUserId$(collectionName: string): Observable<DocumentData[]> {
+    // const deliveriesRef = 
+    return this.getFirestore$().pipe(
+      map(db => collection(db, collectionName)),
+      mergeMap(ref => this.getFirebaseUser$().pipe(
+        map(user => {
+          if (user) return query(ref, where("userId", "==", user.uid));
+          else throw new Error(userIsNull);
+        })
+      )),
+      concatMap(query => getDocs(query)),
+      map(res => res.docs.map(doc => doc.data()))
+    );
   }
 
   login(email: string, password: string): Observable<UserCredential> {

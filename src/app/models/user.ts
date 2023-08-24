@@ -9,6 +9,7 @@ export type User = {
   facebookShare: boolean;
   twitterShare: boolean;
   instagramShare: boolean;
-  deliveryAddress: string;
-  deliveryBackup: string;
+  delivery: string[]; // contains deliveryIds stored in deliveries collection
 }
+
+export const userIsNull = "user is null";
