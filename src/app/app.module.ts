@@ -12,6 +12,9 @@ import { PrivacyComponent } from './minicomponents/privacy/privacy.component';
 import { FooterComponent } from './minicomponents/footer/footer.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
+import { OrderComponent } from './order/order.component';
+import { MealpickerComponent } from './minicomponents/mealpicker/mealpicker.component';
+import { MealpickerPopupComponent } from './minicomponents/mealpicker/mealpicker-popup/mealpicker-popup.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { SignupComponent } from './auth/signup/signup.component';
     PrivacyComponent,
     FooterComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    OrderComponent,
+    MealpickerComponent,
+    MealpickerPopupComponent
   ],
   imports: [
     BrowserModule,
