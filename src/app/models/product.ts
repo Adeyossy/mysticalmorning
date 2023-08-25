@@ -16,3 +16,5 @@ export interface ProductInOrder {
     quantity: number;
     specialRequest?: string;
 }
+
+export const PRODUCT_DOES_NOT_EXIST = "product does not exist";
