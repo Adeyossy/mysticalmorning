@@ -1,1 +1,15 @@
-<p>mealpicker-popup works!</p>
+<div class="container-fluid p-0">
+  <div class="row g-0">
+    <div class="offset-md-1 col-md-10 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6 mm-popup-container">
+      <div class="mm-popup">
+        <h1>Choose a {{ category }} item</h1>
+        <p class="mm-smaller-subtitle">Hint: Click to select at least one item.</p>
+        <br>
+        <app-product *ngFor="let product of products | async" [product]="product"
+          (click)="emitSelectEvent(product)"></app-product>
+        <br>
+        <button>Done</button>
+      </div>
+    </div>
+  </div>
+</div>

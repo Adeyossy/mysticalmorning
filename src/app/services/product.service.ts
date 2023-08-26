@@ -18,7 +18,9 @@ export class ProductService {
     return this.authService.getFirestore$().pipe(
       concatMap(db => getDocs(collection(db, this.collection))),
       map(snapshot => snapshot.docs.map(doc => {
-        return { id: doc.id, product: doc.data() as Product } as ProductAndId
+        const product = doc.data() as Product;
+        product.id = doc.id;
+        return product;
       }))
     )
   }
