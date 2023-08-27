@@ -41,7 +41,7 @@ h1.mm-business-name{
 
 p, textarea, input {
   font-family: Georgia, 'Times New Roman', Times, serif;
-  line-height: 1.1em;
+  line-height: 1.2em;
   color: var(--mm-text-color);
 }
 
@@ -102,6 +102,11 @@ i {
   line-height: 1em;
   margin-bottom: var(--mm-small-spacing);
   letter-spacing: -0.5px;
+}
+
+.mm-subheading {
+  font-size: 14pt;
+  line-height: 1em;
 }
 
 .mm-header.mm-business-name {

@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { ProductComponent } from './products/product/product.component';
 import { PrivacyComponent } from './minicomponents/privacy/privacy.component';
 import { FooterComponent } from './minicomponents/footer/footer.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FooterComponent } from './minicomponents/footer/footer.component';
     ModalComponent,
     ProductComponent,
     PrivacyComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
