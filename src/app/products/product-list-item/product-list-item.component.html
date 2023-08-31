@@ -1,0 +1,11 @@
+<div class="mm-product-list-view d-flex">
+  <div>
+    <img src="{{product.thumbnail}}" alt="{{product.name}}" 
+      class="mm-product-list-view-image img-fluid">
+  </div>
+  <div class="mm-product-list-view-details">
+    <h1 class="mm-header">{{ product.name }}</h1>
+    <p class="shorten">{{ product.description }}</p>
+    <p class="price">{{ product.price | currency:'NGN':'symbol-narrow' }}</p>
+  </div>
+</div>

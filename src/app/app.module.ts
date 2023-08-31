@@ -17,7 +17,7 @@ import { MealpickerComponent } from './minicomponents/mealpicker/mealpicker.comp
 import { MealpickerPopupComponent } from './minicomponents/mealpicker/mealpicker-popup/mealpicker-popup.component';
 import { ProductsListComponent } from './products/products-list/products-list.component';
 import { ProductDetailsComponent } from './products/product-details/product-details.component';
-import { ProductListViewComponent } from './products/product-list-view/product-list-view.component';
+import { ProductListItemComponent } from './products/product-list-item/product-list-item.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,7 @@ import { ProductListViewComponent } from './products/product-list-view/product-l
     MealpickerPopupComponent,
     ProductsListComponent,
     ProductDetailsComponent,
-    ProductListViewComponent
+    ProductListItemComponent
   ],
   imports: [
     BrowserModule,

@@ -5,8 +5,9 @@
         <h1>Choose a {{ category }} item</h1>
         <p class="mm-smaller-subtitle">Hint: Click to select at least one item.</p>
         <br>
-        <app-product *ngFor="let product of products | async" [product]="product"
-          (click)="emitSelectEvent(product)"></app-product>
+        <!-- <app-product *ngFor="let product of products | async" [product]="product"
+          (click)="emitSelectEvent(product)"></app-product> -->
+        <app-products-list></app-products-list>
         <br>
         <button>Done</button>
       </div>
