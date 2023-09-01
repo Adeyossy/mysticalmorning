@@ -14,6 +14,11 @@ export class ProductService {
 
   constructor(private authService: AuthService) { }
 
+  /**
+   * Returns a new observable of products:Product[] from the firestore database.
+   * 
+   * @returns an observable of products array
+   */
   getProducts$() {
     return this.authService.getFirestore$().pipe(
       concatMap(db => getDocs(collection(db, this.collection))),
@@ -25,6 +30,11 @@ export class ProductService {
     )
   }
 
+  /**
+   * Takes an id: string and returns its Observable.
+   * @param id - the firestore Id for the product requested
+   * @returns - an Observable of the found product or undefined if the product is not found
+   */
   getProductById$(id: string) {
     // return this.products.find(product => product.id === id);
     return this.getProducts$().pipe(

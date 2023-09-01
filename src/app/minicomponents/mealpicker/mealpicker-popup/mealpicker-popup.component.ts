@@ -17,6 +17,14 @@ export class MealpickerPopupComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * Emits the click event in the template to the parent meal-picker component
+   * as a product registered in an order.
+   * 
+   * @param product: Product
+   * 
+   * @returns void
+   */
   emitSelectEvent(product: Product) {
     const productInOrder: ProductInOrder = {
       productId: product.id,
