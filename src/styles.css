@@ -39,7 +39,7 @@ h1.mm-business-name{
   font-family: 'Raleway', Cambria, sans-serif;
 }
 
-p, textarea, input {
+p, textarea, input, li {
   font-family: Georgia, 'Times New Roman', Times, serif;
   line-height: 1.2em;
   color: var(--mm-text-color);
@@ -118,7 +118,7 @@ p.mm-subtitle{
   letter-spacing: -0.6px;
 }
 
-p.mm-smaller-subtitle{
+.mm-smaller-subtitle{
   font-size: 12pt;
   color: var(--mm-smaller-subtitle-color);
   margin-bottom: var(--mm-default-spacing);
@@ -150,7 +150,7 @@ p.mm-smaller-subtitle{
     letter-spacing: -0.6px;
   }
 
-  p.mm-smaller-subtitle{
+  .mm-smaller-subtitle{
     font-size: 14pt;
     color: var(--mm-smaller-subtitle-color);
   }

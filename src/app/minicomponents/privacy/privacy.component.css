@@ -2,11 +2,10 @@
   padding: 10% 5%;
 }
 
-p {
-  font-size: 19px;
-  color: rgba(0, 0, 0, 0.9);
-}
-
 .mm-privacy-policy-section {
   margin: 48px 0px;
+}
+
+.mm-privacy-policy-section > h2 {
+  margin-bottom: var(--mm-small-spacing);
 }

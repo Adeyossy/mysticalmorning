@@ -7,9 +7,9 @@ import { Product } from '../models/product';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
+  ngOnInit() {
   }
+  
   products = [
     'sandwich', 'product_chocolate', 'product_sandwich', 'coffee', 'sandwich_chocolate_meal', 'sandwiches'
   ];
