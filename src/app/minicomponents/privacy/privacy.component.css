@@ -3,9 +3,13 @@
 }
 
 .mm-privacy-policy-section {
-  margin: 48px 0px;
+  margin: 64px 0px;
 }
 
 .mm-privacy-policy-section > h2 {
   margin-bottom: var(--mm-small-spacing);
+}
+
+p.mm-smaller-subtitle, li.mm-smaller-subtitle {
+  line-height: 1.5em;
 }

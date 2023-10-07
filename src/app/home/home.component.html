@@ -1,6 +1,3 @@
-<header>
-  <app-nav (preorder)="toggleModal()" [isModalShown]="isModalShown"></app-nav>
-</header>
 <main [ngClass]="isModalShown ? 'mm-full-viewport' : ''">
   <div class="container-fluid mm-first-content-group p-0">
     <div class="row g-0">
@@ -125,4 +122,3 @@
 <div class="mm-backdrop">
   <div class="mm-backdrop-image"></div>
 </div>
-<app-modal *ngIf="isModalShown" [message]="preorderMessage" (modalCloser)="toggleModal()"></app-modal>

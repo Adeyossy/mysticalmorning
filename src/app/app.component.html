@@ -1,1 +1,5 @@
+<header>
+  <app-nav (preorder)="toggleModal()" [isModalShown]="isModalShown"></app-nav>
+</header>
 <router-outlet></router-outlet>
+<app-modal *ngIf="isModalShown" [message]="preorderMessage" (modalCloser)="toggleModal()"></app-modal>
