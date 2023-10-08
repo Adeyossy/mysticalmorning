@@ -10,7 +10,7 @@
   --mm-primary-color: rgb(96, 255, 96);
   --mm-primary-color-light: rgb(200, 255, 200);
   --mm-primary-color-contrast: rgb(0, 51, 27);
-  --mm-accent-color: rgb(237, 28, 36);
+  --mm-accent-color: rgb(240, 82, 2);
   --mm-grey-color: rgb(128, 128, 128);
   --mm-nav-background-color: rgba(245, 245, 245, 0.7);
   --mm-modal-backdrop-color: rgba(0, 0, 0, 0.65);
@@ -73,9 +73,13 @@ button:active{
 }
 
 a {
-  color: var(--mm-grey-color);
+  color: var(--mm-primary-color-contrast);
   text-decoration: none;
   font-family: 'Jost', sans-serif;
+}
+
+a:hover {
+  color: var(--mm-accent-color);
 }
 
 textarea {
@@ -106,6 +110,7 @@ i {
 .mm-content-header {
   min-height: 60vh;
   padding: var(--mm-default-spacing);
+  margin-top: var(--mm-large-spacing);
 }
 
 .mm-header {
@@ -120,7 +125,7 @@ i {
   line-height: 1em;
 }
 
-.mm-header.mm-business-name {
+.mm-header.mm-large-header {
   font-size: 57pt;
 }
 
@@ -151,7 +156,7 @@ p.mm-subtitle{
 }
 
 @media only screen and (min-width: 768px) {
-  .mm-header.mm-business-name {
+  .mm-header.mm-large-header {
     font-size: 54pt;
     margin-bottom: 0;
   }
