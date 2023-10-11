@@ -7,7 +7,7 @@ import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  linkItems = ['meals', 'menu', 'nutrition'];
+  linkItems = ['menu', 'articles', 'nutrition'];
 
   @Input() isModalShown = false;
   @Output() preorder = new EventEmitter();
