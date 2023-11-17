@@ -129,6 +129,10 @@ i {
   font-size: 57pt;
 }
 
+.mm-header.mm-article-header {
+  font-size: 48pt;
+}
+
 p.mm-subtitle{
   font-size: 23pt;
   letter-spacing: -0.6px;
