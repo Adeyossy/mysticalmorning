@@ -3,11 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { PrivacyComponent } from './minicomponents/privacy/privacy.component';
 import { HomeComponent } from './home/home.component';
+import { ArticleComponent } from './article/article.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "about/privacy", component: PrivacyComponent },
-  // { path: "articles/:id", component: Article}
+  { path: "articles/balanced-diet-and-the-five-food-groups", component: ArticleComponent }
 ];
 
 @NgModule({

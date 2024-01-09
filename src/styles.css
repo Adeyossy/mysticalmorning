@@ -154,6 +154,22 @@ p.mm-subtitle{
   color: var(--mm-accent-color) !important;
 }
 
+.mm-article {
+  padding: 5%;
+}
+
+.mm-article-section {
+  margin: 64px 0px;
+}
+
+.mm-article-section > h2 {
+  margin-bottom: var(--mm-small-spacing);
+}
+
+p.mm-smaller-subtitle, li.mm-smaller-subtitle {
+  line-height: 1.5em;
+}
+
 *:disabled, *:disabled:hover {
   cursor: not-allowed;
   opacity: 0.5;
