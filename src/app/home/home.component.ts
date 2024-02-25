@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../models/product';
+import { AppService } from '../services/app.service';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,8 @@ import { Product } from '../models/product';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  constructor(public appService: AppService) {}
+
   ngOnInit() {
   }
   
@@ -38,17 +41,6 @@ export class HomeComponent implements OnInit {
   affordableProducts = [this.productSandwich, this.productChocolate, this.productMeal]
 
   more_products = ['fries'];
-  
-  isModalShown = false;
 
   stars = new Array(5);
-  
-  toggleModal(): void {
-    this.isModalShown = !this.isModalShown;
-  }
-
-  doStuff(): void {
-    console.log('loaded');
-  }
-
 }

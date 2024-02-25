@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Product } from './models/product';
+import { AppService } from './services/app.service';
 
 @Component({
   selector: 'app-root',
@@ -12,9 +12,6 @@ export class AppComponent {
 
   subscribeMessage = 'Hello, I would like to subscribe to your breakfast service. I would like to have sandwich and coffee (insert any other dish on our menu) every morning at 8.00am from Monday to Friday. You can deliver to _____________ location.';
 
-
-  toggleModal(): void {
-    this.isModalShown = !this.isModalShown;
-  }
-  
+  constructor(public appService: AppService) {
+  }  
 }
