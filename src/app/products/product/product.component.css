@@ -1,14 +1,25 @@
 .mm-product-container {
     background-color: var(--mm-modal-background-color);
+    transition: opacity 200ms ease-in, background-color 200ms ease-in;
+    color: var(--mm-primary-color-contrast);
+    font-size: 16px;
+}
+
+.mm-product-container:hover {
+    opacity: 0.9;
+    background-color: var(--mm-modal-button-container-color);
 }
 
 .mm-product-details {
     padding: var(--mm-small-spacing);
-    background-color: var(--mm-modal-button-container-color);
+    background-color: inherit;
     /* border: 2px solid var(--mm-primary-color-contrast); */
 }
 
 h2.mm-product-details-header {
-    color: var(--mm-primary-color-contrast);
-    font-size: 16px;
+    font-size: inherit;
+}
+
+p.mm-product-details-header.number {
+    font-family: 'ITC Avant Garde Pro Md', Cambria, sans-serif;
 }
