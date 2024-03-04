@@ -14,33 +14,33 @@ export class HomeComponent implements OnInit {
   }
   
   products = [
-    'sandwich', 'product_chocolate', 'product_sandwich', 'coffee', 'sandwich_chocolate_meal', 'sandwiches'
+    'sandwich', 'product_spaghetti', 'spaghetti.in.pan', 'coffee', 'product_rice', 'sandwiches'
   ];
 
-  productSandwich: Product = {
-    name: 'Sandwich',
+  productFries: Product = {
+    name: 'Fries',
     category: 'Food',
-    price: 500,
+    price: 600,
     description: ''
   }
 
-  productChocolate: Product = {
-    name: 'Chocolate',
-    category: 'Drink',
-    price: 500,
+  productSpaghetti: Product = {
+    name: 'Spaghetti',
+    category: 'Food',
+    price: 700,
     description: ''
   }
 
-  productMeal: Product = {
-    name: 'Sandwich and Beverage',
-    category: 'Meal',
-    price: 799,
+  productRice: Product = {
+    name: 'Rice',
+    category: 'Food',
+    price: 2500,
     description: ''
   }
 
-  affordableProducts = [this.productSandwich, this.productChocolate, this.productMeal]
+  affordableProducts = [this.productFries, this.productSpaghetti, this.productRice]
 
-  more_products = ['fries'];
+  more_products = ['product_fries'];
 
   stars = new Array(5);
 }

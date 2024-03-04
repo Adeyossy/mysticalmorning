@@ -72,6 +72,11 @@ main {
   background-color: var(--mm-primary-color);
 }
 
+#reviews .alternate {
+  background-color: var(--mm-primary-color-contrast);
+  color: var(--mm-text-color-contrast);
+}
+
 .mm-second-content-group > .container-fluid {
   padding: var(--mm-small-spacing) 0;
 }
