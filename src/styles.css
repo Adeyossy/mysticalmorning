@@ -7,6 +7,7 @@
   --mm-primary-text-color-contrast: white;
   --mm-smaller-subtitle-color: #4d4d4d;
   --mm-text-color: black;
+  --mm-text-color-contrast: white;
   --mm-primary-color: rgb(96, 255, 96);
   --mm-primary-color-light: rgb(200, 255, 200);
   --mm-primary-color-contrast: rgb(0, 51, 27);
@@ -18,6 +19,10 @@
   --mm-modal-button-container-color: rgba(230, 230, 230);
   --mm-black: rgba(26, 26, 26);
   --mm-default-background-color: rgba(245, 245, 245, 0.8);
+}
+
+body {
+  color: var(--mm-text-color);
 }
 
 header {
@@ -32,7 +37,7 @@ h1, h2, h3, h4, h5, h6, button {
   font-family: 'ITC Avant Garde Pro Md', Cambria, sans-serif;
   font-weight: 900;
   margin: 0;
-  color: var(--mm-text-color);
+  color: inherit;
 }
 
 h1.mm-business-name{
@@ -42,11 +47,11 @@ h1.mm-business-name{
 p, textarea, input, li {
   font-family: Georgia, 'Times New Roman', Times, serif;
   line-height: 1.2em;
-  color: var(--mm-text-color);
+  color: inherit;
 }
 
 p.number {
-  font-family: 'Raleway', Times, serif;
+  font-family: 'ITC Avant Garde Pro Md', Times, serif;
 }
 
 button {
