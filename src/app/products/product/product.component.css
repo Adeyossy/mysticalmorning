@@ -1,13 +1,14 @@
 .mm-product-container {
     background-color: var(--mm-modal-background-color);
-    transition: opacity 200ms ease-in, background-color 200ms ease-in;
     color: var(--mm-primary-color-contrast);
     font-size: 16px;
+    transition: opacity 200ms ease-in, background-color 200ms ease-in, box-shadow 200ms ease-in;
 }
 
 .mm-product-container:hover {
     opacity: 0.9;
     background-color: var(--mm-modal-button-container-color);
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .mm-product-details {
