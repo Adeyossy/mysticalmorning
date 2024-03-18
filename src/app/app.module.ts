@@ -11,6 +11,7 @@ import { PrivacyComponent } from './minicomponents/privacy/privacy.component';
 import { FooterComponent } from './minicomponents/footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { ArticleComponent } from './article/article.component';
+import { ProductDetailsComponent } from './products/product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ArticleComponent } from './article/article.component';
     PrivacyComponent,
     FooterComponent,
     HomeComponent,
-    ArticleComponent
+    ArticleComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,
