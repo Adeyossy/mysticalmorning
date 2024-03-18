@@ -12,7 +12,8 @@
                 <button class="mm-button w-100" (click)="appService.toggleModal()">QUICK PREORDER</button>
               </div>
               <div class="col-md-5 mm-first-content-button">
-                <button class="mm-button mm-button-alternate w-100" (click)="appService.toggleModal()">SUBSCRIBE</button>
+                <button class="mm-button mm-button-alternate w-100"
+                  (click)="appService.toggleModal()">SUBSCRIBE</button>
               </div>
             </div>
           </div>
@@ -123,7 +124,8 @@
                 We believe we can achieve free delivery for our customers.
               </p>
               <p class="mm-section-description-paragraph mm-smaller-subtitle">
-                Right now, we deliver our food items for free in the University College Hospital, Ibadan and its immediate environs.
+                Right now, we deliver our food items for free in the University College Hospital, Ibadan and its
+                immediate environs.
                 We hope to gradually expand to other locations as soon as possible.
               </p>
             </div>
@@ -133,8 +135,16 @@
     </div>
   </div>
   <div class="mm-section-break"></div>
+  <div class="container-fluid p-0 mm-bg-primary">
+    <div class="row g-0 justify-content-center">
+      <div class="offset-1 col-10 offset-lg-3 col-lg-6 mm-section-container pb-0 d-flex justify-content-center align-items-center">
+        <div class="mm-reviews"></div>
+      </div>
+    </div>
+  </div>
 </main>
 <footer [ngClass]="appService.isModalShown ? 'd-none' : 'd-block'">
+  <div class="mm-page-divider"></div>
   <app-footer></app-footer>
 </footer>
 <div class="mm-backdrop">
