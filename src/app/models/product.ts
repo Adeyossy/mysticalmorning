@@ -25,5 +25,21 @@ export interface Product {
 }
 
 export class Product {
-    
+    id = "";
+    name = "";
+    category = "";
+    price = -1;
+    description = "";
+    nutritionalValue = "";
+    rating = 0;
+    reviews = "";
+    images = "";
+    lifestyleImages = ""
+
+    constructor(id: string, name: string, price: number, category: string) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.category = category;
+    }
 }
