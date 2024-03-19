@@ -8,7 +8,7 @@ import { Product } from 'src/app/models/product';
 })
 export class ProductComponent implements OnInit {
 
-  @Input() product: Product = { name: '', category: '', price: 0, description: '' }
+  @Input() product = new Product();
 
   @Input() showDescription = false;
 
