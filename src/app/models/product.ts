@@ -42,4 +42,8 @@ export class Product {
         this.price = price;
         this.category = category;
     }
+
+    getCollection(property: "images" | "reviews" | "lifestyleImages") {
+        return this[property].split(",");
+    }
 }
