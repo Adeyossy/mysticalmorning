@@ -25,10 +25,10 @@ export interface Product {
 }
 
 export class Product {
-    id = "";
-    name = "";
-    category = "";
-    price = -1;
+    id: string;
+    name: string;
+    price: number;
+    category: string;
     description = "";
     nutritionalValue = "";
     rating = 0;
@@ -36,7 +36,7 @@ export class Product {
     images = "";
     lifestyleImages = ""
 
-    constructor(id: string, name: string, price: number, category: string) {
+    constructor(id="", name="", price = -1, category="") {
         this.id = id;
         this.name = name;
         this.price = price;
