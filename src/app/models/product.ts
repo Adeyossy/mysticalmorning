@@ -12,7 +12,7 @@ export interface Review {
 }
 
 export interface Product {
-    productId: string;
+    id: string;
     name: string;
     category: string;
     price: number;
