@@ -23,3 +23,7 @@ export interface Product {
     images: string; // concat the links of each image into a single string
     lifestyleImages: string;
 }
+
+export class Product {
+    
+}
