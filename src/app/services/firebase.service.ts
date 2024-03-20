@@ -13,7 +13,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class FirebaserviceService {
+export class FirebaseService {
 
   serverlessURL = "/.netlify/functions"
 
