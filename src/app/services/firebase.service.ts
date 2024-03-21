@@ -7,7 +7,7 @@ import { Auth, User, getAuth, createUserWithEmailAndPassword,
   AuthErrorCodes,
   sendEmailVerification,
   signInAnonymously} from 'firebase/auth';
-import { Firestore, getFirestore } from 'firebase/firestore';
+import { collection, Firestore, getDoc, getDocs, getFirestore } from 'firebase/firestore';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -95,6 +95,13 @@ export class FirebaseService {
           });
         } else throw new Error(AuthErrorCodes.NULL_USER);
       })
+    )
+  }
+
+  getCollection$<Type>(collectionName: string): Observable<Type[]> {
+    return this.getFirestore$().pipe(
+      concatMap(db => getDocs(collection(db, collectionName))),
+      map(collection => collection.docs as Type[])
     )
   }
 
