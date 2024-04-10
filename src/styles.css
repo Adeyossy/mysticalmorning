@@ -111,10 +111,15 @@ i {
   background-color: var(--mm-primary-color-contrast);
 }
 
+.mm-page-heading {
+  min-height: 60vh;
+}
+
 .mm-content-header-group {
   background: linear-gradient(to right, white, var(--mm-primary-color-light)), url('./assets/images/abstract.png');
   background-blend-mode: soft-light;
   background-size: cover;
+  background-position: left center;
 }
 
 .mm-content-header {
@@ -140,7 +145,7 @@ i {
 }
 
 .mm-header.mm-article-header {
-  font-size: 48pt;
+  font-size: 42pt;
 }
 
 .mm-bg-primary {
