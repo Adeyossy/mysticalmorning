@@ -3,13 +3,14 @@ export type Order = {
   orderId: string;
   items: string[];
   orderDate: number;
+  timeOfMeal: "breakfast" | "lunch" | "dinner";
   deliveryDate: number;
   deliveryLocation: string;
   deliveryContact: string;
   price: number;
-  paymentMode: string;
+  paymentMethod: "cash" | "transfer" | "pos" | "card";
   isConfirmed: boolean;
   isDelivered: boolean;
   isCancelled: boolean;
-  subscriptionId: string
+  subscriptionId: string;
 }
