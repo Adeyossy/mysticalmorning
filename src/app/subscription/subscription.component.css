@@ -1,0 +1,23 @@
+.mm-subscription-step {
+  height: 100%;
+  background-color: var(--mm-modal-background-color);
+  background-blend-mode: soft-light;
+  border: 1px solid var(--mm-primary-color-light);
+}
+
+.mm-subscription-step .mm-header {
+  height: 6rem;
+  line-height: 1.5rem;
+}
+
+.mm-subscription-step p.mm-smaller-subtitle {
+  height: 14rem;
+  line-height: 1.6rem;
+}
+
+.mm-subscription-step-number {
+  width: 48px;
+  height: 48px;
+  background-color: var(--mm-primary-color);
+  color: white;
+}

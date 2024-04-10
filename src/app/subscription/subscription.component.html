@@ -1,0 +1,27 @@
+<div class="container-fluid p-0 mm-content-header-group pb-5">
+  <div class="row g-0">
+    <div class="col-lg-6">
+      <div class="p-5">
+        <br><br><br>
+        <h1 class="mm-header mm-article-header">Subscribe!</h1>
+        <p class="mm-subtitle">Create a food plan that works for you.</p>
+        <p class="mm-smaller-subtitle">Enjoy prompt automagical delivery after you set up your food plan.</p>
+      </div>
+    </div>
+  </div>
+  <div class="row g-0 px-4">
+    <div class="col-lg-6 col-xl-4 px-4 pb-5" *ngFor="let step of steps; index as i">
+      <div class="mm-subscription-step p-5 d-flex flex-column align-items-center">
+        <div class="mm-subscription-step-number d-flex justify-content-center align-items-center">
+          <span class="fw-bold">{{ i + 1 }}</span>
+        </div>
+        <br><br>
+        <h1 class="mm-header text-center">{{ step.heading }}</h1>
+        <br><br>
+        <p class="mm-smaller-subtitle">{{ step.body }}</p>
+        <button class="mm-button w-100">SUBSCRIBE</button>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
