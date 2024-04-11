@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { ArticleComponent } from './article/article.component';
 import { ProductDetailsComponent } from './products/product-details/product-details.component';
 import { SubscriptionComponent } from './subscription/subscription.component';
+import { NewSubscriptionComponent } from './subscription/new-subscription/new-subscription.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { SubscriptionComponent } from './subscription/subscription.component';
     HomeComponent,
     ArticleComponent,
     ProductDetailsComponent,
-    SubscriptionComponent
+    SubscriptionComponent,
+    NewSubscriptionComponent
   ],
   imports: [
     BrowserModule,
