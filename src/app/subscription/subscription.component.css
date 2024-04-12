@@ -1,10 +1,3 @@
-.mm-subscription-step {
-  height: 100%;
-  background-color: var(--mm-modal-background-color);
-  background-blend-mode: soft-light;
-  border: 1px solid var(--mm-primary-color-light);
-}
-
 .mm-subscription-step .mm-header {
   height: 6rem;
   line-height: 1.5rem;

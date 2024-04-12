@@ -24,4 +24,6 @@ export class SubscriptionComponent {
       to send a message to Mystical Morning's WhatsApp line once you complete your subscription.`
     }
   ]
+
+  nonAlphaNumeric = /\W/g;
 }

@@ -9,8 +9,8 @@
       </div>
     </div>
   </div>
-  <div class="row g-0 px-4">
-    <div class="col-lg-6 col-xl-4 px-4 pb-5" *ngFor="let step of steps; index as i">
+  <div class="row g-0 mm-subscription-padding">
+    <div class="col-lg-6 col-xl-4 mm-subscription-padding pb-5" *ngFor="let step of steps; index as i">
       <div class="mm-subscription-step p-5 d-flex flex-column align-items-center">
         <div class="mm-subscription-step-number d-flex justify-content-center align-items-center">
           <span class="fw-bold">{{ i + 1 }}</span>
@@ -19,7 +19,10 @@
         <h1 class="mm-header text-center">{{ step.heading }}</h1>
         <br><br>
         <p class="mm-smaller-subtitle">{{ step.body }}</p>
-        <button class="mm-button w-100">SUBSCRIBE</button>
+        <button class="mm-button w-100" 
+          routerLink="./new/steps/{{1}}/{{steps[0].heading.toLowerCase().replace(nonAlphaNumeric, '-')}}">
+          SUBSCRIBE
+        </button>
       </div>
     </div>
   </div>
