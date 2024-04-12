@@ -3,6 +3,7 @@
   --mm-default-spacing: 27px;
   --mm-large-spacing: 54px;
   --mm-xl-spacing: 108px;
+  --mm-responsive-spacing: 13.5px;
   --mm-primary-text-color: black;
   --mm-primary-text-color-contrast: white;
   --mm-smaller-subtitle-color: #4d4d4d;
@@ -70,6 +71,12 @@ button.mm-button-alternate {
 button:hover{
   background-color: var(--mm-primary-color);
   border-color: var(--mm-primary-color);
+  color: var(--mm-primary-text-color-contrast);
+}
+
+button.selected{
+  background-color: var(--mm-primary-color-contrast);
+  border-color: var(--mm-primary-color-contrast);
   color: var(--mm-primary-text-color-contrast);
 }
 
@@ -198,7 +205,22 @@ p.mm-smaller-subtitle, li.mm-smaller-subtitle {
   opacity: 0.5;
 }
 
+.mm-subscription-step {
+  height: 100%;
+  background-color: var(--mm-modal-background-color);
+  background-blend-mode: soft-light;
+  border: 1px solid var(--mm-primary-color-light);
+}
+
+.mm-subscription-padding {
+  padding: 0px var(--mm-responsive-spacing);
+}
+
 @media only screen and (min-width: 768px) {
+  :root {
+    --mm-responsive-spacing: 27px;
+  }
+
   .mm-header.mm-large-header {
     font-size: 54pt;
     margin-bottom: 0;
