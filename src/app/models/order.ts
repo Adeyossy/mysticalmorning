@@ -12,5 +12,6 @@ export type Order = {
   isConfirmed: boolean;
   isDelivered: boolean;
   isCancelled: boolean;
+  isNeglected: boolean;
   subscriptionId: string;
 }
