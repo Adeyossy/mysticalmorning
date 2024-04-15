@@ -15,6 +15,7 @@ import { ArticleComponent } from './article/article.component';
 import { ProductDetailsComponent } from './products/product-details/product-details.component';
 import { SubscriptionComponent } from './subscription/subscription.component';
 import { NewSubscriptionComponent } from './subscription/new-subscription/new-subscription.component';
+import { ProductsGridComponent } from './products/products-grid/products-grid.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { NewSubscriptionComponent } from './subscription/new-subscription/new-su
     ArticleComponent,
     ProductDetailsComponent,
     SubscriptionComponent,
-    NewSubscriptionComponent
+    NewSubscriptionComponent,
+    ProductsGridComponent
   ],
   imports: [
     BrowserModule,
