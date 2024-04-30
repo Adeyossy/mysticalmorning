@@ -1,1 +1,9 @@
-<p>products-grid works!</p>
+<div class="container-fluid p-0">
+  <div class="row g-0">
+    <div class="col-6 col-lg-4 col-xl-3 px-2 py-2" *ngFor="let product of products">
+      <div class="mm-product" (click)="emitProduct(product)">
+        <app-product [product]="product" [isSelected]="selectedProducts.includes(product.id)"></app-product>
+      </div>
+    </div>
+  </div>
+</div>
