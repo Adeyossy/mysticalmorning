@@ -9,7 +9,7 @@ import { Product } from 'src/app/models/product';
 export class ProductComponent implements OnInit {
 
   @Input() product = new Product();
-
+  @Input() isSelected = false;
   @Input() showDescription = false;
 
   constructor() { }
