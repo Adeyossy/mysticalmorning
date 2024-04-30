@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: "articles/balanced-diet-and-the-five-food-groups", component: ArticleComponent },
   { path: "subscribe", component: SubscriptionComponent, 
     title: "Subscribe to Mystical Morning's Food Plan" },
-  { path: "subscribe/new/steps/:stepNumber/:stepDescription", component: NewSubscriptionComponent, 
+  { path: "subscribe/new/steps", component: NewSubscriptionComponent, 
     title: "New Mystical Morning Food Plan", children: [
       // { path: "placeholder" }
     ] }
