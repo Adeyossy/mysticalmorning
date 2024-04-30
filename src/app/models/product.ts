@@ -43,6 +43,22 @@ export class Product {
         this.category = category;
     }
 
+    parseProduct(product: Product) {
+        this.id = product.id;
+        this.name = product.name;
+        this.price = product.price;
+        this.category = product.category;
+        this.description = product.description;
+        this.nutritionalValue = product.hasOwnProperty('nutritionalValue') ? 
+            product.nutritionalValue : "";
+        this.rating = product.hasOwnProperty('rating') ? product.rating : 0;
+        this.reviews = product.hasOwnProperty('reviews') ? product.reviews : "";
+        this.images = product.hasOwnProperty('images') ? product.images : "";
+        this.lifestyleImages = product.hasOwnProperty('lifestyleImages') ? product.lifestyleImages
+            : "";
+        return this;
+    }
+
     getCollection(property: "images" | "reviews" | "lifestyleImages") {
         return this[property].split(",");
     }
