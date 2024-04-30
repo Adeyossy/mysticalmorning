@@ -10,7 +10,7 @@ export class AppService {
   products: Product[] = [];
 
   constructor(private firebaservice: FirebaseService) {
-    this.fetchProducts();
+    // this.fetchProducts();
   }
 
   toggleModal(): void {
