@@ -4,6 +4,7 @@
   --mm-large-spacing: 54px;
   --mm-xl-spacing: 108px;
   --mm-responsive-spacing: 13.5px;
+  --mm-responsive-font-size: 12px;
   --mm-primary-text-color: black;
   --mm-primary-text-color-contrast: white;
   --mm-smaller-subtitle-color: #4d4d4d;
@@ -20,6 +21,8 @@
   --mm-modal-button-container-color: rgba(230, 230, 230);
   --mm-black: rgba(26, 26, 26);
   --mm-default-background-color: rgba(245, 245, 245, 0.8);
+  --mm-brightest-background-color: rgba(255, 255, 255, 0.9);
+  --mm-noon-color: rgb(255, 245, 219);
 }
 
 body {
@@ -34,11 +37,15 @@ header {
   background-color: var(--mm-nav-background-color);
 }
 
-h1, h2, h3, h4, h5, h6, button {
+h1, h2, h3, h4, h5, h6, button, label {
   font-family: 'ITC Avant Garde Pro Md', Cambria, sans-serif;
   font-weight: 900;
   margin: 0;
   color: inherit;
+}
+
+label {
+  margin-bottom: var(--mm-small-spacing);
 }
 
 h1.mm-business-name{
@@ -51,7 +58,7 @@ p, textarea, input, li {
   color: inherit;
 }
 
-p.number {
+p.number, .fw-bold {
   font-family: 'ITC Avant Garde Pro Md', Times, serif;
 }
 
@@ -94,7 +101,7 @@ a:hover {
   color: var(--mm-accent-color);
 }
 
-textarea {
+input, textarea {
   resize: none;
   width: 100%;
   border: 2px solid var(--mm-primary-color-contrast);
@@ -216,9 +223,67 @@ p.mm-smaller-subtitle, li.mm-smaller-subtitle {
   padding: 0px var(--mm-responsive-spacing);
 }
 
+.mm-fit-screen {
+  height: 100vh;
+}
+
+.mm-fill-screen {
+  min-height: 100vh;
+}
+
+.mm-match-height {
+  height: 100%;
+}
+
+.mm-modal-container {
+  top: 0;
+  background-color: var(--mm-modal-backdrop-color);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.mm-morning-bg {
+  background-color: var(--mm-brightest-background-color);
+}
+
+.mm-afternoon-bg {
+  background-color: var(--mm-noon-color);
+}
+
+.mm-night-bg {
+  background-color: var(--mm-nav-background-color);
+}
+
+.mm-container-selected {
+  background-color: var(--mm-primary-color-light);
+}
+
+i.bi-cloud-sun-fill {
+  color: var(--mm-primary-color);
+}
+
+i.bi-sun-fill {
+  color: orange;
+}
+
+i.bi-moon-fill {
+  color: var(--mm-primary-color-contrast);
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(25%);
+  }
+
+  to {
+    transform: translateY(0px);
+  }
+}
+
 @media only screen and (min-width: 768px) {
   :root {
     --mm-responsive-spacing: 27px;
+    --mm-responsive-font-size: 16px;
   }
 
   .mm-header.mm-large-header {
