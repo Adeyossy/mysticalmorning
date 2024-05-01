@@ -211,7 +211,7 @@ export class NewSubscriptionComponent implements OnInit {
     userId: string, subscriptionId: string) {
     const date = new Date();
     const year = date.getFullYear();
-    const month = date.getMonth().toString();
+    const month = (date.getMonth() + 1).toString();
     const monthPadded = month.length < 2 ? `0${month}` : month;
     const day = date.getDate() + index + 1;
     const dayPadded = day.toString().length < 2 ? `0${day}` : day;

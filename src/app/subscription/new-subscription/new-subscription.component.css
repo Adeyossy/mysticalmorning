@@ -28,7 +28,7 @@ i.mm-close:hover {
   position: relative;
   width: 100%;
   max-height: 75%;
-  overflow: auto;
+  /* overflow: auto; */
   transform: translateY(100%);
   animation: slideUp 200ms ease-in 0ms 1 forwards;
   transition: background-color 250ms ease-in;
@@ -38,8 +38,12 @@ i.mm-close:hover {
   transform: translateY(0);
 }
 
+.mm-subscription-popup-heading {
+  height: 15%;
+}
+
 .mm-subscription-popup-body {
-  flex: 1;
+  height: 85%;
   overflow: auto;
   transform: translateY(100%);
   animation: slideUp 200ms ease-in 0ms 1 forwards;
@@ -78,27 +82,22 @@ i.mm-close:hover {
 }
 
 .mm-noproduct {
-  background-color: var(--mm-brightest-background-color);
+  background-color: var(--mm-modal-background-color);
 }
 
 .mm-noproduct-picture {
   width: 100%;
-  height: 320px;
+  height: 25vh;
+}
+
+.mm-noproduct-details {
+  background-color: var(--mm-brightest-background-color);
 }
 
 .mm-noproduct-details > * {
   width: 100%;
-  height: 32px;
+  height: 16px;
   background-color: var(--mm-primary-color-contrast);
-  animation: loadProgress 200ms ease-in 0s infinite normal forwards;
-}
-
-@keyframes loadProgress {
-  from {
-    width: 50%;
-  }
-
-  to {
-    width: 100%;
-  }
+  border-radius: 8px;
+  animation: animateRight 1000ms ease-in 0s infinite normal forwards;
 }

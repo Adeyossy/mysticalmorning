@@ -1,16 +1,20 @@
-<div class="container-fluid p-0 mm-content-header-group pb-5 mm-fill-screen">
-  <div class="row g-0 py-5 justify-content-between">
+<div class="container-fluid p-0 mm-content-header-group py-5 mm-fill-screen">
+  <div class="row g-0 py-5">
     <div class="col-lg-6">
       <div class="px-5 py-3">
-        <br><br><br>
+        <br><br>
         <!-- <h1 class="mm-header mm-article-header">Subscribe!</h1> -->
-        <p class="mm-subtitle">Step {{ stepNumber + 1 }}:</p>
+        <p class="mm-subtitle">
+          <i class="bi bi-arrow-left-circle-fill" *ngIf="stepNumber > 0" 
+            (click)="stepNumber = stepNumber - 1"></i> 
+          Step {{ stepNumber + 1 }}:
+        </p>
         <p class="mm-smaller-subtitle">{{ stepsHeadings[stepNumber] }}.</p>
       </div>
     </div>
-    <div class="col-lg-6 mm-subscription-padding py-5" *ngIf="stepNumber === 0">
-      <div class="mm-subscription-step mm-subscription-padding py-5">
-        <div id="mm-subscription-step-1">
+    <div class="col-lg-6 mm-subscription-padding">
+      <div class="mm-subscription-step mm-subscription-padding py-5" *ngIf="stepNumber === 0">
+        <div id="mm-subscription-step-1 py-5">
           <h1 class="mm-header text-center">Days of the Week:</h1>
           <br>
           <div class="container-fluid p-0">
@@ -51,12 +55,23 @@
         </div>
       </div>
     </div>
-    <div class="col-md-6 col-lg-4 mm-subscription-padding" *ngIf="stepNumber === 1">
+    <div class="col-md-6 col-lg-4 mm-subscription-padding py-3" *ngIf="stepNumber === 1">
       <div class="mm-subscription-day-meals mm-subscription-padding py-5">
         <p class="">Total for 1 week:</p>
         <h2 class="mm-header">{{ calculateWeeklyTotal() | currency:'NGN':'symbol-narrow' }}</h2>
         <br>
-        <button class="mm-button w-100" (click)="stepNumber = 2">PROCEED</button>
+        <div class="container-fluid p-0">
+          <div class="row">
+            <div class="col-3">
+              <h2 class="mm-header mm-article-header" (click)="stepNumber = 0">
+                <i class="bi bi-arrow-left-circle-fill"></i>
+              </h2>
+            </div>
+            <div class="col-9">
+              <button class="mm-button w-100" (click)="stepNumber = 2">PROCEED</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="col-lg-6 mm-subscription-padding py-5" *ngIf="stepNumber === 2">
@@ -121,9 +136,9 @@
         <div class="mm-subscription-popup-content mm-subscription-padding py-4"
           [ngClass]="['mm-morning-bg', 'mm-afternoon-bg', 'mm-night-bg'][typeOfMealCount % typesOfMeal.length]">
           <!-- <ng-container *ngComponentOutlet="getPopupComponent(step)"></ng-container> -->
-          <div class="" *ngFor="let meal of typesOfMeal; index as j"
+          <div class="mm-match-height" *ngFor="let meal of typesOfMeal; index as j"
             [ngClass]="typeOfMealCount % typesOfMeal.length === j ?
-              'd-flex flex-column': 'd-none'" >
+              'd-block': 'd-none'" >
             <div class="mm-subscription-popup-heading">
               <h1 class="mm-header mm-capitalize">{{ selectedDay }}</h1>
               <div class="mm-subscription-time-of-day py-2">
@@ -138,18 +153,19 @@
               <br>
             </div>
             <div class="mm-subscription-popup-body">
-              <div *ngIf="products$ | async as productsTemp">
-                <app-products-grid *ngIf="productsTemp !== null; else noProduct" [products]="productsTemp"
+              <div *ngIf="products$ | async as productsTemp; else noProduct">
+                <app-products-grid *ngIf="productsTemp.length" [products]="productsTemp"
                   (productEmitter)="onItemClicked($event)"
                   [selectedProducts]="getBasicOrder(selectedDay)"></app-products-grid>
               </div>
               <ng-template #noProduct>
                 <div class="container-fluid p-0">
-                  <div class="row g-0">
-                    <div class="col-6 col-lg-4 col-xl-3" *ngFor="let e of ['', '', '', '']">
+                  <div class="row">
+                    <div class="col-6 col-lg-4 col-xl-3 mm-subscription-padding" 
+                      *ngFor="let e of ['', '', '', '']">
                       <div class="mm-noproduct w-100">
                         <div class="mm-noproduct-picture"></div>
-                        <div class="mm-noproduct-details p-3">
+                        <div class="mm-noproduct-details p-2">
                           <div class="mm-product-details-name mb-3"></div>
                           <div class="mm-product-details-price"></div>
                         </div>
@@ -159,22 +175,22 @@
                 </div>
               </ng-template>
               <br>
-            </div>
-            <div class="container-fluid p-0">
-              <div class="row g-0 justify-content-between">
-                <div class="col-5 col-md-4 col-lg-3 col-xl-2">
-                  <button class="mm-button mm-button-alternate w-100" (click)="previous()"
-                    [disabled]="currentDay === 0 && typeOfMealCount === 0">PREVIOUS</button>
-                </div>
-                <div class="col-5 col-md-4 col-lg-3 col-xl-2">
-                  <button class="mm-button w-100"
-                    *ngIf="currentDay === selectedDays.filter(filter).length - 1 && typeOfMealCount % 3 === 2; else nextButton"
-                    (click)="done()"
-                    [disabled]="currentDay < selectedDays.filter(filter).length - 1 && typeOfMealCount % 3 < 2">DONE</button>
-                  <ng-template #nextButton>
-                    <button class="mm-button mm-button-alternate w-100" (click)="next()"
-                      [disabled]="currentDay === selectedDays.filter(filter).length - 1 && typeOfMealCount % 3 === 2">NEXT</button>
-                  </ng-template>
+              <div class="container-fluid p-0">
+                <div class="row g-0 justify-content-between">
+                  <div class="col-5 col-md-4 col-lg-3 col-xl-2">
+                    <button class="mm-button mm-button-alternate w-100" (click)="previous()"
+                      [disabled]="currentDay === 0 && typeOfMealCount === 0">PREVIOUS</button>
+                  </div>
+                  <div class="col-5 col-md-4 col-lg-3 col-xl-2">
+                    <button class="mm-button w-100"
+                      *ngIf="currentDay === selectedDays.filter(filter).length - 1 && typeOfMealCount % 3 === 2; else nextButton"
+                      (click)="done()"
+                      [disabled]="currentDay < selectedDays.filter(filter).length - 1 && typeOfMealCount % 3 < 2">DONE</button>
+                    <ng-template #nextButton>
+                      <button class="mm-button mm-button-alternate w-100" (click)="next()"
+                        [disabled]="currentDay === selectedDays.filter(filter).length - 1 && typeOfMealCount % 3 === 2">NEXT</button>
+                    </ng-template>
+                  </div>
                 </div>
               </div>
             </div>

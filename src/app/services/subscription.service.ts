@@ -22,6 +22,11 @@ export class SubscriptionService {
       heading: "Indicate where and when you want your food delivered",
       body: `e.g. I would like my breakfast delivered by 8:00am in UCH, Ibadan. You will be able 
       to send a message to Mystical Morning's WhatsApp line once you complete your subscription.`
+    },
+    {
+      heading: "Notify us on WhatsApp",
+      body: `Your order will be automatically converted to a message you can send to us on 
+      WhatsApp. It allows you to notify us immediately and acts as a backup.`
     }
   ]
 
