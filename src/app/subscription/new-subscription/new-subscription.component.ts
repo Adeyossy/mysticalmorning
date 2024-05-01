@@ -187,10 +187,9 @@ export class NewSubscriptionComponent implements OnInit {
   }
 
   onlyNumbers(contact: string) {
-    console.log("contact => ", isNaN(parseInt(contact)));
     const orderDelivery = Object.assign({}, this.orderDelivery);
     if (!isNaN(parseInt(contact))) orderDelivery.deliveryContact = contact;
-    console.log('deliveryContact => ', orderDelivery.deliveryContact);
+    
     this.orderDelivery = orderDelivery;
   }
 
@@ -217,7 +216,7 @@ export class NewSubscriptionComponent implements OnInit {
     const dayPadded = day.toString().length < 2 ? `0${day}` : day;
     const hour = this.getHour(timeOfMeal);
     const newDate = `${year}-${monthPadded}-${dayPadded}T${hour}:00`;
-    console.log("newDate => ", newDate);
+    // console.log("newDate => ", newDate);
 
     const order: Order = {
       deliveryBackup: this.orderDelivery.deliveryBackup,
@@ -336,8 +335,6 @@ export class NewSubscriptionComponent implements OnInit {
     message = message.concat("Backup: ", this.orderDelivery.deliveryBackup, "\n");
 
     const encodedMessage = encodeURI(message);
-    console.log("Message => ", message);
-    console.log("URI Encoded Message => ", encodedMessage);
     return encodedMessage;
   }
 }
