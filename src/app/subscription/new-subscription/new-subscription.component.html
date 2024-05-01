@@ -113,7 +113,7 @@
           <br>
           <button class="mm-button w-100" *ngIf="!sub; else goHome" (click)="uploadSubscription()">TRY AGAIN</button>
           <ng-template #goHome>
-            <a href="https://wa.me/2348071376213?text={{message}}">
+            <a href="https://wa.me/2348071376213?text={{message}}" target="_blank">
               <button class="mm-button w-100">NOTIFY ON WHATSAPP</button>
             </a>
           </ng-template>
