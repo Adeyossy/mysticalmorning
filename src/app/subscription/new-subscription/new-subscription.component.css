@@ -78,19 +78,24 @@ i.mm-close:hover {
 }
 
 .mm-noproduct {
-  background-color: var(--mm-brightest-background-color);
+  background-color: var(--mm-modal-background-color);
 }
 
 .mm-noproduct-picture {
   width: 100%;
-  height: 320px;
+  height: 25vh;
+}
+
+.mm-noproduct-details {
+  background-color: var(--mm-brightest-background-color);
 }
 
 .mm-noproduct-details > * {
   width: 100%;
-  height: 32px;
+  height: 16px;
   background-color: var(--mm-primary-color-contrast);
-  animation: loadProgress 200ms ease-in 0s infinite normal forwards;
+  border-radius: 8px;
+  animation: loadProgress 1000ms ease-in 0s infinite normal forwards;
 }
 
 @keyframes loadProgress {
