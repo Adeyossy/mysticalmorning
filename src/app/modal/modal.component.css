@@ -50,13 +50,3 @@ button.mm-button {
     top: 0;
   }
 }
-
-@keyframes slideUp {
-  from {
-    transform: translateY(25%);
-  }
-
-  to {
-    transform: translateY(0px);
-  }
-}

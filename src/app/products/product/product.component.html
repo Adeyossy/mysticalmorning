@@ -1,8 +1,8 @@
-<div class="mm-product-container">
+<div class="mm-product-container" [class.mm-container-selected]="isSelected">
     <div class="mm-product-image-container">
         <img [src]="product.getCollection('images')[0]" alt="{{product.name}}" class="mm-product-image img-fluid">
     </div>
-    <div class="mm-product-details">
+    <div class="mm-product-details" [class.mm-container-selected]="isSelected">
         <h2 class="mm-product-details-header shorten">{{ product.name }}</h2>
         <p class="mm-product-details-header number fw-bold">{{ product.price | currency:'NGN':'symbol-narrow' }}</p>
     </div>

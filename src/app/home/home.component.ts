@@ -23,9 +23,9 @@ export class HomeComponent implements OnInit {
   stars = new Array(5);
   
   constructor(public appService: AppService) {
-    this.productFries.images = "../../../assets/images/product_fries.jpg";
-    this.productSpaghetti.images = "../../../assets/images/product_spaghetti.jpg";
-    this.productRice.images = "../../../assets/images/product_rice.jpg";
+    this.productFries.images = "/assets/images/product_fries.jpg";
+    this.productSpaghetti.images = "/assets/images/product_spaghetti.jpg";
+    this.productRice.images = "/assets/images/product_rice.jpg";
   }
   
   ngOnInit() {

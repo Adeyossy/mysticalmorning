@@ -1,0 +1,187 @@
+<div class="container-fluid p-0 mm-content-header-group pb-5 mm-fill-screen">
+  <div class="row g-0 py-5 justify-content-between">
+    <div class="col-lg-6">
+      <div class="px-5 py-3">
+        <br><br><br>
+        <!-- <h1 class="mm-header mm-article-header">Subscribe!</h1> -->
+        <p class="mm-subtitle">Step {{ stepNumber + 1 }}:</p>
+        <p class="mm-smaller-subtitle">{{ stepsHeadings[stepNumber] }}.</p>
+      </div>
+    </div>
+    <div class="col-lg-6 mm-subscription-padding py-5" *ngIf="stepNumber === 0">
+      <div class="mm-subscription-step mm-subscription-padding py-5">
+        <div id="mm-subscription-step-1">
+          <h1 class="mm-header text-center">Days of the Week:</h1>
+          <br>
+          <div class="container-fluid p-0">
+            <div class="row">
+              <div class="col-6 col-xl-4 py-3" *ngFor="let day of subscriptionKeys; index as i">
+                <!-- Insert selectable UI -->
+                <button class="mm-button mm-button-alternate w-100 mm-capitalize" [class.selected]="selectedDays[i]"
+                  (click)="toggleDayOfWeek(day, i)">{{ day }}</button>
+              </div>
+            </div>
+          </div>
+          <br>
+          <button class="mm-button w-100" [disabled]="selectedDays.filter(filter).length === 0"
+            (click)="isPopupOpen = true">CONTINUE</button>
+        </div>
+        <!-- <div class="mm-subscription-step-number d-flex justify-content-center align-items-center">
+          <span class="fw-bold">{{ 1 }}</span>
+        </div> -->
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4" *ngFor="let dayMeal of subscriptionSummary; index as i"
+      [ngClass]="stepNumber === 1 && dayMeal[1].length > 0 ? 'd-block': 'd-none'">
+      <div class="py-3 px-2 mm-match-height">
+        <div class="mm-subscription-day-meals mm-selectable mm-subscription-padding py-5 w-100 mm-match-height">
+          <h2 class="mm-header mb-1 mm-capitalize">{{ dayMeal[0] }}</h2>
+          <div *ngFor="let meal of typesOfMeal; index as j" (click)="openPopUp(i, j)">
+            <div *ngIf="findByMealType(dayMeal[1], meal) as found">
+              <span class="me-1 py-2 px-3 fw-bold">
+                <i class="bi bi-{{ typesOfMealIcons[j] }}-fill"></i> {{ meal }}
+              </span>
+              <p class="mm-capitalize ps-5 mb-0">{{ productsToNames(found.items) }}</p>
+              <p class="mm-capitalize ps-5 number">{{ found.price | currency:'NGN':'symbol-narrow' }}</p>
+            </div>
+          </div>
+          <br>
+          <button class="mm-button-alternate w-100">Total: {{ calculateTotal(dayMeal[1]) |
+            currency:'NGN':'symbol-narrow' }}</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4 mm-subscription-padding" *ngIf="stepNumber === 1">
+      <div class="mm-subscription-day-meals mm-subscription-padding py-5">
+        <p class="">Total for 1 week:</p>
+        <h2 class="mm-header">{{ calculateWeeklyTotal() | currency:'NGN':'symbol-narrow' }}</h2>
+        <br>
+        <button class="mm-button w-100" (click)="stepNumber = 2">PROCEED</button>
+      </div>
+    </div>
+    <div class="col-lg-6 mm-subscription-padding py-5" *ngIf="stepNumber === 2">
+      <div class="mm-subscription-step mm-subscription-padding py-5">
+        <div id="mm-subscription-step-1">
+          <h1 class="mm-header text-center">Delivery Details:</h1>
+          <br>
+          <label for="deliveryLocation">Delivery Location</label>
+          <input type="text" name="deliveryLocation" id="deliveryLocation"
+            [(ngModel)]="this.orderDelivery.deliveryLocation"
+            placeholder="Where do you want your meals delivered? Be detailed as much as you can." required>
+          <br><br>
+          <label for="deliveryContact">Delivery Phone Number</label>
+          <input type="text" name="deliveryContact" id="deliveryContact"
+            [(ngModel)]="this.orderDelivery.deliveryContact"
+            placeholder="What number should we call when we want to deliver to you?" required>
+          <br><br>
+          <label for="deliveryBackup">Backup Delivery Plan</label>
+          <input type="text" name="deliveryBackup" id="deliveryBackup" [(ngModel)]="this.orderDelivery.deliveryBackup"
+            placeholder="In case we cannot reach you, is there someone/somewhere else?" required>
+          <br>
+          <br>
+          <button class="mm-button w-100" [disabled]="!this.orderDelivery.deliveryBackup || 
+          !this.orderDelivery.deliveryContact || !this.orderDelivery.deliveryLocation"
+            (click)="uploadSubscription()">CONTINUE</button>
+        </div>
+        <!-- <div class="mm-subscription-step-number d-flex justify-content-center align-items-center">
+          <span class="fw-bold">{{ 1 }}</span>
+        </div> -->
+      </div>
+    </div>
+    <div class="col-lg-6 mm-subscription-padding py-5" *ngIf="stepNumber === 3">
+      <div class="mm-subscription-step mm-subscription-padding py-5" *ngIf="subscriptionBatch$ | async as sub">
+        <div id="mm-subscription-step-4">
+          <h1 class="mm-header text-center">{{ sub ? 'Completed Successfully' : 'Oops!' }}</h1>
+          <br>
+          <p>{{ sub ? 'Your meal subscription has been created successfully' :
+            'An error occurred while creating your food subscription' }}</p>
+          <br>
+          <button class="mm-button w-100" *ngIf="!sub; else goHome" (click)="uploadSubscription()">TRY AGAIN</button>
+          <ng-template #goHome>
+            <a href="https://wa.me/2348071376213?text={{message}}">
+              <button class="mm-button w-100">NOTIFY ON WHATSAPP</button>
+            </a>
+          </ng-template>
+        </div>
+        <!-- <div class="mm-subscription-step-number d-flex justify-content-center align-items-center">
+          <span class="fw-bold">{{ 1 }}</span>
+        </div> -->
+      </div>
+    </div>
+  </div>
+  <div class="row g-0 mm-subscription-padding">
+  </div>
+</div>
+<div class="position-fixed w-100 mm-modal-container" [ngClass]="isPopupOpen ? 'd-block' : 'd-none'">
+  <div class="container-fluid p-0">
+    <div class="row g-0 mm-fit-screen">
+      <div class="offset-md-1 col-md-10 offset-lg-2 col-lg-8 mm-subscription-meals-column"
+        *ngFor="let selectedDay of filteredDays; index as i"
+        [ngClass]="currentDay === i ? 'd-flex flex-column justify-content-end' : 'd-none'">
+        <div class="mm-subscription-popup-content mm-subscription-padding py-4"
+          [ngClass]="['mm-morning-bg', 'mm-afternoon-bg', 'mm-night-bg'][typeOfMealCount % typesOfMeal.length]">
+          <!-- <ng-container *ngComponentOutlet="getPopupComponent(step)"></ng-container> -->
+          <div class="" *ngFor="let meal of typesOfMeal; index as j"
+            [ngClass]="typeOfMealCount % typesOfMeal.length === j ?
+              'd-flex flex-column': 'd-none'" >
+            <div class="mm-subscription-popup-heading">
+              <h1 class="mm-header mm-capitalize">{{ selectedDay }}</h1>
+              <div class="mm-subscription-time-of-day py-2">
+                <span class="me-1 py-2 ps-3" [ngClass]="k === j ?
+                'mm-select-with-underline pe-3': 'pe-2'" (click)="typeOfMealCount = j"
+                 *ngFor="let m of typesOfMeal; index as k">
+                  <i class="bi bi-{{ typesOfMealIcons[k] }}-fill"></i> {{ m }}
+                </span>
+                <!-- <span class="me-1 px-3 py-2" [class.mm-select-with-underline]="typeOfMealCount === 1"><i class="bi bi-sun-fill"></i> Lunch</span>
+              <span class="px-3 py-2" [class.mm-select-with-underline]="typeOfMealCount === 2"><i class="bi bi-moon-fill"></i> Dinner</span> -->
+              </div>
+              <br>
+            </div>
+            <div class="mm-subscription-popup-body">
+              <div *ngIf="products$ | async as productsTemp">
+                <app-products-grid *ngIf="productsTemp !== null; else noProduct" [products]="productsTemp"
+                  (productEmitter)="onItemClicked($event)"
+                  [selectedProducts]="getBasicOrder(selectedDay)"></app-products-grid>
+              </div>
+              <ng-template #noProduct>
+                <div class="container-fluid p-0">
+                  <div class="row g-0">
+                    <div class="col-6 col-lg-4 col-xl-3" *ngFor="let e of ['', '', '', '']">
+                      <div class="mm-noproduct w-100">
+                        <div class="mm-noproduct-picture"></div>
+                        <div class="mm-noproduct-details p-3">
+                          <div class="mm-product-details-name mb-3"></div>
+                          <div class="mm-product-details-price"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+              <br>
+            </div>
+            <div class="container-fluid p-0">
+              <div class="row g-0 justify-content-between">
+                <div class="col-5 col-md-4 col-lg-3 col-xl-2">
+                  <button class="mm-button mm-button-alternate w-100" (click)="previous()"
+                    [disabled]="currentDay === 0 && typeOfMealCount === 0">PREVIOUS</button>
+                </div>
+                <div class="col-5 col-md-4 col-lg-3 col-xl-2">
+                  <button class="mm-button w-100"
+                    *ngIf="currentDay === selectedDays.filter(filter).length - 1 && typeOfMealCount % 3 === 2; else nextButton"
+                    (click)="done()"
+                    [disabled]="currentDay < selectedDays.filter(filter).length - 1 && typeOfMealCount % 3 < 2">DONE</button>
+                  <ng-template #nextButton>
+                    <button class="mm-button mm-button-alternate w-100" (click)="next()"
+                      [disabled]="currentDay === selectedDays.filter(filter).length - 1 && typeOfMealCount % 3 === 2">NEXT</button>
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+          </div>
+          <i class="bi bi-x-octagon-fill mm-close mm-selectable" (click)="isPopupOpen = false"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

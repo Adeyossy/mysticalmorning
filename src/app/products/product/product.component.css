@@ -14,7 +14,12 @@
 .mm-product-details {
     padding: var(--mm-small-spacing);
     background-color: inherit;
+    transition: background-color 200ms ease-in;
     /* border: 2px solid var(--mm-primary-color-contrast); */
+}
+
+.mm-product-details.mm-container-selected {
+    background-color: var(--mm-primary-color);
 }
 
 h2.mm-product-details-header {
