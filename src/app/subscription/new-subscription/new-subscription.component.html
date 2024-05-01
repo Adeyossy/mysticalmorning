@@ -138,18 +138,19 @@
               <br>
             </div>
             <div class="mm-subscription-popup-body">
-              <div *ngIf="products$ | async as productsTemp">
-                <app-products-grid *ngIf="productsTemp !== null; else noProduct" [products]="productsTemp"
+              <div *ngIf="products$ | async as productsTemp; else noProduct">
+                <app-products-grid *ngIf="productsTemp.length" [products]="productsTemp"
                   (productEmitter)="onItemClicked($event)"
                   [selectedProducts]="getBasicOrder(selectedDay)"></app-products-grid>
               </div>
               <ng-template #noProduct>
                 <div class="container-fluid p-0">
-                  <div class="row g-0">
-                    <div class="col-6 col-lg-4 col-xl-3" *ngFor="let e of ['', '', '', '']">
+                  <div class="row">
+                    <div class="col-6 col-lg-4 col-xl-3 mm-subscription-padding" 
+                      *ngFor="let e of ['', '', '', '']">
                       <div class="mm-noproduct w-100">
                         <div class="mm-noproduct-picture"></div>
-                        <div class="mm-noproduct-details p-3">
+                        <div class="mm-noproduct-details p-2">
                           <div class="mm-product-details-name mb-3"></div>
                           <div class="mm-product-details-price"></div>
                         </div>
