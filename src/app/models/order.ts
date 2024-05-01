@@ -1,6 +1,7 @@
+import { environment } from "src/environments/environment";
 import { Product } from "./product";
 
-export const ORDER_COLLECTION = "orders";
+export const ORDER_COLLECTION = environment.order;
 
 export type TimeOfMeal = "Breakfast" | "Lunch" | "Dinner";
 

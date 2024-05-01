@@ -1,6 +1,7 @@
+import { environment } from "src/environments/environment";
 import { BasicOrder } from "./order";
 
-export const SUBSCRIPTION_COLLECTION = "subscriptions";
+export const SUBSCRIPTION_COLLECTION = environment.subscription;
 
 export type DayOfWeek = "mondays" | "tuesdays" | "wednesdays" | "thursdays" | "fridays"
 | "saturdays" | "sundays";
