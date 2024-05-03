@@ -1,8 +1,27 @@
 <div class="container-fluid p-0">
   <div class="row g-0">
-    <div class="col-6 col-lg-4 col-xl-3 px-2 py-2" *ngFor="let product of products">
-      <div class="mm-product" (click)="emitProduct(product)">
-        <app-product [product]="product" [isSelected]="selectedProducts.includes(product.id)"></app-product>
+    <div class="px-2 py-2" *ngFor="let product of products"
+    [ngClass]="selectedProducts.includes(product.id) ? 'col-12 col-lg-8 col-xl-6' 
+      : 'col-6 col-lg-4 col-xl-3'">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="" [ngClass]="selectedProducts.includes(product.id) ? 'col-6': 'col-12'">
+            <div class="mm-product" (click)="emitProduct(product)">
+              <app-product [product]="product" [isSelected]="selectedProducts.includes(product.id)"></app-product>
+            </div>
+          </div>
+          <div class="col-6 text-center" [class.d-none]="!selectedProducts.includes(product.id)">
+            <div class="w-50">
+              <h2 class="mm-header mm-article-header" (click)="removeEmitter.emit(product)">
+                <i class="bi bi-dash-circle mm-inherit-size"></i>
+              </h2>
+              <h2 class="mm-header mm-article-header text-center">{{ getProductCount(product.id) }}</h2>
+              <h2 class="mm-header mm-article-header" (click)="addEmitter.emit(product)">
+                <i class="bi bi-plus-circle-fill mm-inherit-size"></i>
+              </h2>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

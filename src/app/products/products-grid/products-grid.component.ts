@@ -12,12 +12,13 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 export class ProductsGridComponent implements OnInit {
   @Input() products: Product[] = [];
   @Input() selectedProducts: string[] = [];
-  @Output() idEmitter = new EventEmitter<string>();
+  @Output() addEmitter = new EventEmitter<Product>();
   @Output() productEmitter = new EventEmitter<Product>();
+  @Output() removeEmitter = new EventEmitter<Product>();
 
-  emitId(id: string) {
-    this.idEmitter.emit(id);
-  }
+  // emitChange(product: Product) {
+  //   this.changeEmitter.emit(product);
+  // }
 
   emitProduct(product: Product) {
     this.productEmitter.emit(product);
@@ -26,5 +27,9 @@ export class ProductsGridComponent implements OnInit {
   constructor(private firebaseService: FirebaseService) {}
 
   ngOnInit(): void {
+  }
+
+  getProductCount(productId: string) {
+    return this.selectedProducts.filter(s => s === productId).length;
   }
 }
