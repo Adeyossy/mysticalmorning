@@ -116,13 +116,16 @@ export class NewSubscriptionComponent implements OnInit {
       .flatMap(b => b.items).map(p => p.id);
   }
 
-  onItemClicked(product: Product) {
+  getBasicOrdersForDay() {
     const filteredDays = this.selectedDays.filter(this.filter);
     const dayOfWeek = filteredDays[this.currentDay % filteredDays.length].toLowerCase() as
       DayOfWeek;
+    return this.basicSubscription[dayOfWeek];
+  }
+
+  onItemClicked(product: Product) {
     const typeOfMeal = this.typesOfMeal[this.typeOfMealCount % this.typesOfMeal.length];
-    const subscription = this.basicSubscription;
-    const basicOrdersForDay = subscription[dayOfWeek];
+    const basicOrdersForDay = this.getBasicOrdersForDay();
 
     if (basicOrdersForDay.length > 0) {
       const daytimeMeal = basicOrdersForDay.find(sub => sub.timeOfMeal === typeOfMeal);
@@ -151,9 +154,28 @@ export class NewSubscriptionComponent implements OnInit {
       basicOrdersForDay.push(basicOrder);
     }
 
-    this.basicSubscription = subscription;
     this.subscriptionSummary = this.getSubscriptionKeys();
     // this.message = this.generateMessage();
+  }
+
+  addMorePlates(product: Product) {
+    const typeOfMeal = this.typesOfMeal[this.typeOfMealCount % this.typesOfMeal.length];
+    const basicOrdersForDay = this.getBasicOrdersForDay();
+    const daytimeMeal = basicOrdersForDay.find(sub => sub.timeOfMeal === typeOfMeal);
+    if (daytimeMeal) {
+      daytimeMeal.items.push(product)
+    }
+    this.subscriptionSummary = this.getSubscriptionKeys();
+  }
+
+  removePlate(product: Product) {
+    const typeOfMeal = this.typesOfMeal[this.typeOfMealCount % this.typesOfMeal.length];
+    const basicOrdersForDay = this.getBasicOrdersForDay();
+    const daytimeMeal = basicOrdersForDay.find(sub => sub.timeOfMeal === typeOfMeal);
+    if (daytimeMeal) {
+      daytimeMeal.items.splice(daytimeMeal.items.findIndex(item => item.id === product.id));
+    }
+    this.subscriptionSummary = this.getSubscriptionKeys();
   }
 
   getSubscriptionKeys() {
@@ -166,7 +188,18 @@ export class NewSubscriptionComponent implements OnInit {
   }
 
   productsToNames(items: Product[]) {
-    return items.map(p => p.name).join(", ");
+    const productNames = items.map((p, i) => {
+      const itemOnly = items.filter(item => item.name === p.name);
+      if (itemOnly.length > 1) {
+
+        return `${p.name} (x${itemOnly})`;
+      }
+      return p.name;
+    });
+
+    const productNamesSet = new Set(productNames);
+
+    return [...productNamesSet].join(", ");
   }
 
   productsToIds(items: Product[]) {
@@ -189,7 +222,7 @@ export class NewSubscriptionComponent implements OnInit {
   onlyNumbers(contact: string) {
     const orderDelivery = Object.assign({}, this.orderDelivery);
     if (!isNaN(parseInt(contact))) orderDelivery.deliveryContact = contact;
-    
+
     this.orderDelivery = orderDelivery;
   }
 
