@@ -12,6 +12,8 @@ export interface Subscription {
   dateCreated: number;
   dateModified: number;
   dateCancelled: number;
+  startDate: number;
+  endDate: number;
   mondays: string; // an array of the ids of the order(s)
   tuesdays: string; // an array of the ids of the order(s)
   wednesdays: string; // an array of the ids of the order(s)

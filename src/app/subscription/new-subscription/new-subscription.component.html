@@ -15,6 +15,25 @@
     <div class="col-lg-6 mm-subscription-padding">
       <div class="mm-subscription-step mm-subscription-padding py-5" *ngIf="stepNumber === 0">
         <div id="mm-subscription-step-1 py-5">
+          <h1 class="mm-header text-center">Time and Frequency:</h1>
+          <br>
+          <label for="subscriptionStart">Subscription Start Date</label>
+          <input type="date" name="subscriptionStart" id="subscriptionStart"
+           [(ngModel)]="subscriptionStart" [min]="todaysDate">
+          <br><br>
+          <label for="subscriptionEnd">Subscription End Date</label>
+          <input type="date" name="subscriptionEnd" id="subscriptionEnd" [min]="subscriptionStart"
+           [(ngModel)]="subscriptionEnd">
+          <br><br><br>
+          <button class="mm-button w-100" [disabled]="!valiDate(subscriptionStart) 
+            || !valiDate(subscriptionEnd)" (click)="rearrange()">CONTINUE</button>
+        </div>
+        <!-- <div class="mm-subscription-step-number d-flex justify-content-center align-items-center">
+          <span class="fw-bold">{{ 1 }}</span>
+        </div> -->
+      </div>
+      <div class="mm-subscription-step mm-subscription-padding py-5" *ngIf="stepNumber === 1">
+        <div id="mm-subscription-step-1 py-5">
           <h1 class="mm-header text-center">Days of the Week:</h1>
           <br>
           <div class="container-fluid p-0">
@@ -36,7 +55,7 @@
       </div>
     </div>
     <div class="col-md-6 col-lg-4" *ngFor="let dayMeal of subscriptionSummary; index as i"
-      [ngClass]="stepNumber === 1 && dayMeal[1].length > 0 ? 'd-block': 'd-none'">
+      [ngClass]="stepNumber === 2 && dayMeal[1].length > 0 ? 'd-block': 'd-none'">
       <div class="py-3 px-2 mm-match-height">
         <div class="mm-subscription-day-meals mm-selectable mm-subscription-padding py-5 w-100 mm-match-height">
           <h2 class="mm-header mb-1 mm-capitalize">{{ dayMeal[0] }}</h2>
@@ -55,7 +74,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-6 col-lg-4 mm-subscription-padding py-3" *ngIf="stepNumber === 1">
+    <div class="col-md-6 col-lg-4 mm-subscription-padding py-3" *ngIf="stepNumber === 2">
       <div class="mm-subscription-day-meals mm-subscription-padding py-5">
         <p class="">Total for 1 week:</p>
         <h2 class="mm-header">{{ calculateWeeklyTotal() | currency:'NGN':'symbol-narrow' }}</h2>
@@ -63,18 +82,18 @@
         <div class="container-fluid p-0">
           <div class="row">
             <div class="col-3">
-              <h2 class="mm-header mm-article-header" (click)="stepNumber = 0">
+              <h2 class="mm-header mm-article-header" (click)="stepNumber = 1">
                 <i class="bi bi-arrow-left-circle-fill"></i>
               </h2>
             </div>
             <div class="col-9">
-              <button class="mm-button w-100" (click)="stepNumber = 2">PROCEED</button>
+              <button class="mm-button w-100" (click)="stepNumber = 3">PROCEED</button>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-lg-6 mm-subscription-padding py-5" *ngIf="stepNumber === 2">
+    <div class="col-lg-6 mm-subscription-padding py-5" *ngIf="stepNumber === 3">
       <div class="mm-subscription-step mm-subscription-padding py-5">
         <div id="mm-subscription-step-1">
           <h1 class="mm-header text-center">Delivery Details:</h1>
@@ -103,7 +122,7 @@
         </div> -->
       </div>
     </div>
-    <div class="col-lg-6 mm-subscription-padding py-5" *ngIf="stepNumber === 3">
+    <div class="col-lg-6 mm-subscription-padding py-5" *ngIf="stepNumber === 4">
       <div class="mm-subscription-step mm-subscription-padding py-5" *ngIf="subscriptionBatch$ | async as sub">
         <div id="mm-subscription-step-4">
           <h1 class="mm-header text-center">{{ sub ? 'Completed Successfully' : 'Oops!' }}</h1>
@@ -143,7 +162,7 @@
               <h1 class="mm-header mm-capitalize">{{ selectedDay }}</h1>
               <div class="mm-subscription-time-of-day py-2">
                 <span class="me-1 py-2 ps-3" [ngClass]="k === j ?
-                'mm-select-with-underline pe-3': 'pe-2'" (click)="typeOfMealCount = j"
+                'mm-select-with-underline pe-3': 'pe-2'" (click)="typeOfMealCount = k"
                  *ngFor="let m of typesOfMeal; index as k">
                   <i class="bi bi-{{ typesOfMealIcons[k] }}-fill"></i> {{ m }}
                 </span>
@@ -155,13 +174,14 @@
             <div class="mm-subscription-popup-body">
               <div *ngIf="products$ | async as productsTemp; else noProduct">
                 <app-products-grid *ngIf="productsTemp.length" [products]="productsTemp"
-                  (productEmitter)="onItemClicked($event)"
-                  [selectedProducts]="getBasicOrder(selectedDay)"></app-products-grid>
+                  (productEmitter)="onItemClicked($event)" (addEmitter)="addPlates($event)"
+                  [selectedProducts]="getBasicOrder(selectedDay)" (removeEmitter)="removePlate($event)">
+                </app-products-grid>
               </div>
               <ng-template #noProduct>
                 <div class="container-fluid p-0">
                   <div class="row">
-                    <div class="col-6 col-lg-4 col-xl-3 mm-subscription-padding" 
+                    <div class="col-6 col-lg-4 col-xl-3 mm-subscription-padding py-4" 
                       *ngFor="let e of ['', '', '', '']">
                       <div class="mm-noproduct w-100">
                         <div class="mm-noproduct-picture"></div>

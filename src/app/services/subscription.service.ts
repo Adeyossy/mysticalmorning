@@ -4,9 +4,14 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class SubscriptionService {  
-  daysOfTheWeek = ["Mondays", "Tuesdays", "Wednesdays", "Thursdays", "Fridays", "Saturdays", "Sundays"];
+  daysOfTheWeek = ["sundays", "mondays", "tuesdays", "wednesdays", "thursdays", "fridays",
+  "saturdays"] as const;
   selectedDays = this.daysOfTheWeek.map(day => "");
   steps = [
+    {
+      heading: "Choose the date your subscription starts and when it ends",
+      body: `Start by setting the date your subscription starts and when it ends.`
+    },
     {
       heading: "Choose the days of the week you want your food delivered",
       body: `You can order breakfast, lunch and/or dinner for each day of the week and Mystical 

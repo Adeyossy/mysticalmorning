@@ -42,6 +42,10 @@ export class NewSubscriptionComponent implements OnInit {
 
   subscriptionSummary: [DayOfWeek, BasicOrder[]][] = [];
   subscriptionBatch$ = new Observable<boolean>();
+  // subscriptionStart = Intl.DateTimeFormat('en-NG').format(new Date());
+  todaysDate = new Date().toISOString().slice(0, 10);
+  subscriptionStart = "";
+  subscriptionEnd = "";
 
   deliveryBackup = '';
   deliveryContact = '';
@@ -61,22 +65,50 @@ export class NewSubscriptionComponent implements OnInit {
   ngOnInit(): void {
     this.stepsHeadings = this.subService.steps.map(step => step.heading);
 
+    console.log("Date => ", new Date().toISOString());
+    console.log("Date => ", Intl.DateTimeFormat().format(new Date()));
+
     this.products$ = this.firebaseService.anonLogin$().pipe(
       concatMap(_userCredential => this.firebaseService.getCollection$<Product>('products')),
       map(products => products.map(product => new Product().parseProduct(product)))
     );
 
-    const today = new Date().getDay();
+    // const today = new Date().getDay();
 
-    if (today < 6) {
-      const days = this.subscriptionKeys.splice(0, today + 1);
-      this.subscriptionKeys.push(...days);
-    }
+    // if (today < 6) {
+    //   const days = this.subscriptionKeys.splice(0, today + 1);
+    //   this.subscriptionKeys.push(...days);
+    // }
 
   }
 
   filter(d: string) {
     return d !== ""
+  }
+
+  setStartDate (val: string) {
+    console.log("val => ", val);
+  }
+
+  rearrange() {
+    const milliDiff = Date.parse(this.subscriptionEnd) - Date.parse(this.subscriptionStart);
+    const weekDiff = Math.floor(milliDiff / (1000 * 60 * 60 * 24 * 7));
+    console.log("Week diff => ", weekDiff);
+    const day = new Date(this.subscriptionStart).getDay();
+    const daysOfTheWeek = this.subService.daysOfTheWeek.slice();
+    if (day > 0) {
+      const days = daysOfTheWeek.splice(0, day);
+      daysOfTheWeek.push(...days);
+    }
+    this.subscriptionKeys = daysOfTheWeek;
+    this.stepNumber = 1;
+  }
+
+  valiDate (dateString: string) {
+    const timestamp = Date.parse(dateString);
+    if (isNaN(timestamp)) return false;
+    if (timestamp < Date.now()) return false;
+    return true;
   }
 
   openPopUp(currentDay?: number, mealType?: number) {
@@ -97,7 +129,7 @@ export class NewSubscriptionComponent implements OnInit {
 
   done() {
     this.isPopupOpen = false;
-    this.stepNumber = 1;
+    this.stepNumber = 2;
     this.currentDay = 0;
     this.typeOfMealCount = 0;
   }
@@ -158,12 +190,13 @@ export class NewSubscriptionComponent implements OnInit {
     // this.message = this.generateMessage();
   }
 
-  addMorePlates(product: Product) {
+  addPlates(product: Product) {
     const typeOfMeal = this.typesOfMeal[this.typeOfMealCount % this.typesOfMeal.length];
     const basicOrdersForDay = this.getBasicOrdersForDay();
     const daytimeMeal = basicOrdersForDay.find(sub => sub.timeOfMeal === typeOfMeal);
     if (daytimeMeal) {
-      daytimeMeal.items.push(product)
+      daytimeMeal.items.push(product);
+      daytimeMeal.price = daytimeMeal.items.map(m => m.price).reduce((acc, curr) => acc + curr, 0);
     }
     this.subscriptionSummary = this.getSubscriptionKeys();
   }
@@ -173,7 +206,8 @@ export class NewSubscriptionComponent implements OnInit {
     const basicOrdersForDay = this.getBasicOrdersForDay();
     const daytimeMeal = basicOrdersForDay.find(sub => sub.timeOfMeal === typeOfMeal);
     if (daytimeMeal) {
-      daytimeMeal.items.splice(daytimeMeal.items.findIndex(item => item.id === product.id));
+      daytimeMeal.items.splice(daytimeMeal.items.findIndex(item => item.id === product.id), 1);
+      daytimeMeal.price = daytimeMeal.items.map(m => m.price).reduce((acc, curr) => acc + curr, 0);
     }
     this.subscriptionSummary = this.getSubscriptionKeys();
   }
@@ -192,7 +226,7 @@ export class NewSubscriptionComponent implements OnInit {
       const itemOnly = items.filter(item => item.name === p.name);
       if (itemOnly.length > 1) {
 
-        return `${p.name} (x${itemOnly})`;
+        return `${p.name} (x${itemOnly.length})`;
       }
       return p.name;
     });
@@ -240,12 +274,13 @@ export class NewSubscriptionComponent implements OnInit {
   }
 
   createOrder(refId: string, index: number, basicOrders: BasicOrder[], timeOfMeal: TimeOfMeal,
-    userId: string, subscriptionId: string) {
-    const date = new Date();
+    userId: string, subscriptionId: string, weeksInMilli: number) {
+    const date = this.subscriptionStart ? new Date(Date.parse(this.subscriptionStart) + weeksInMilli) 
+      : new Date();
     const year = date.getFullYear();
     const month = (date.getMonth() + 1).toString();
     const monthPadded = month.length < 2 ? `0${month}` : month;
-    const day = date.getDate() + index + 1;
+    const day = date.getDate() + index;
     const dayPadded = day.toString().length < 2 ? `0${day}` : day;
     const hour = this.getHour(timeOfMeal);
     const newDate = `${year}-${monthPadded}-${dayPadded}T${hour}:00`;
@@ -283,6 +318,8 @@ export class NewSubscriptionComponent implements OnInit {
             dateCancelled: 0,
             dateCreated: date,
             dateModified: date,
+            startDate: Date.parse(this.subscriptionStart),
+            endDate: Date.parse(this.subscriptionEnd),
             subscriptionId: subscriptionRef.id,
             userId: user!.uid,
             mondays: this.basicSubscription.mondays.map(b => this.productsToIds(b.items)).join(", "),
@@ -299,11 +336,18 @@ export class NewSubscriptionComponent implements OnInit {
               const basicOrdersPerMeal = this.basicSubscription[dayOfWeek]
                 .filter(basicOrder => basicOrder.timeOfMeal === meal);
               if (basicOrdersPerMeal.length > 0) {
-                const orderRef = doc(collection(db, ORDER_COLLECTION));
-                const order = this.createOrder(orderRef.id, index, basicOrdersPerMeal, meal,
-                  user!.uid, subscriptionRef.id);
-                batch.set(orderRef, order);
-                return orderRef.id;
+                const milliDiff = Date.parse(this.subscriptionEnd) - Date.parse(this.subscriptionStart);
+                const weekInMilli = 1000 * 60 * 60 * 24 * 7;
+                const weekDiff = Math.floor(milliDiff / weekInMilli);
+                for (let w = 0; w <= weekDiff; w++) {
+                  if (milliDiff >= weekInMilli * w) {
+                    const orderRef = doc(collection(db, ORDER_COLLECTION));
+                  const order = this.createOrder(orderRef.id, index, basicOrdersPerMeal, meal,
+                    user!.uid, subscriptionRef.id, w * weekInMilli);
+                  batch.set(orderRef, order);
+                  }
+                }
+                return '';                  
               }
               return '';
             });
@@ -319,7 +363,7 @@ export class NewSubscriptionComponent implements OnInit {
   }
 
   uploadSubscription() {
-    this.stepNumber = 3;
+    this.stepNumber = 4;
     this.message = this.generateMessage();
     this.createSubscription();
   }
