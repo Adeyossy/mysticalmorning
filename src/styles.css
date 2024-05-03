@@ -120,6 +120,10 @@ i {
   padding: 4px;
 }
 
+i.mm-inherit-size {
+  font-size: inherit;
+}
+
 .mm-page-divider {
   height: 8px;
   background-color: var(--mm-primary-color-contrast);
