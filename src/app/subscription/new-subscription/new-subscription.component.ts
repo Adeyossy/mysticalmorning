@@ -369,7 +369,12 @@ export class NewSubscriptionComponent implements OnInit {
   }
 
   generateMessage() {
-    let message = "This is my meal subscription plan\n\n";
+    let message = "This is my meal subscription plan:\n";
+    const options = { weekday: "long" } as const;
+    message = message.concat("Start Date: ", Intl.DateTimeFormat('en-NG', options)
+      .format(new Date(this.subscriptionStart)), "\n");
+    message = message.concat("End Date: ", Intl.DateTimeFormat('en-NG', options)
+      .format(new Date(this.subscriptionEnd)), "\n\n");
     const currencyOptions = {
       style: "currency",
       currency: "NGN",
@@ -387,14 +392,16 @@ export class NewSubscriptionComponent implements OnInit {
         message = message.concat(dayOfWeek.toUpperCase(), ':\n');
         for (let j = 0; j < this.typesOfMeal.length; j++) {
           const meal = this.typesOfMeal[j];
-          if (meal) message = message.concat(meal, '\n');
+          // if (meal) message = message.concat(meal, '\n');
           const found = this.findByMealType(basicOrders, this.typesOfMeal[j])
           if (found) {
+            message = message.concat(meal, '\n');
             message = message.concat(this.productsToNames(found.items), '\n');
             message = message.concat(found.price.toLocaleString("en-NG", currencyOptions));
+            message = message.concat('\n');
           }
 
-          message = message.concat('\n\n');
+          message = message.concat('\n');
         }
 
         message = message.concat("TOTAL:", '\n');
@@ -403,13 +410,14 @@ export class NewSubscriptionComponent implements OnInit {
       }
     }
 
+    message = message.concat("_______________", "\n");
     message = message.concat("Total for 1 Week: \n", this.calculateWeeklyTotal()
       .toLocaleString("en-NG", currencyOptions), "\n\n");
 
     message = message.concat("DELIVERY DETAILS:\n");
     message = message.concat("Location: ", this.orderDelivery.deliveryLocation, "\n");
     message = message.concat("Contact: ", this.orderDelivery.deliveryContact, "\n");
-    message = message.concat("Backup: ", this.orderDelivery.deliveryBackup, "\n");
+    message = message.concat("Backup: ", this.orderDelivery.deliveryBackup);
 
     const encodedMessage = encodeURI(message);
     return encodedMessage;
