@@ -370,7 +370,7 @@ export class NewSubscriptionComponent implements OnInit {
 
   generateMessage() {
     let message = "This is my meal subscription plan:\n";
-    const options = { weekday: "long" } as const;
+    const options = { weekday: "long", year: "numeric", month: "numeric", day: "numeric" } as const;
     message = message.concat("Start Date: ", Intl.DateTimeFormat('en-NG', options)
       .format(new Date(this.subscriptionStart)), "\n");
     message = message.concat("End Date: ", Intl.DateTimeFormat('en-NG', options)
