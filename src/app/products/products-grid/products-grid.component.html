@@ -1,10 +1,10 @@
 <div class="container-fluid p-0">
   <div class="row g-0">
-    <div class="px-2 py-2" *ngFor="let product of products"
+    <div class="px-1 py-2" *ngFor="let product of products"
     [ngClass]="selectedProducts.includes(product.id) ? 'col-12 col-lg-8 col-xl-6' 
       : 'col-6 col-lg-4 col-xl-3'">
-      <div class="container-fluid">
-        <div class="row">
+      <div class="container-fluid p-0">
+        <div class="row g-0">
           <div class="" [ngClass]="selectedProducts.includes(product.id) ? 'col-6': 'col-12'">
             <div class="mm-product" (click)="emitProduct(product)">
               <app-product [product]="product" [isSelected]="selectedProducts.includes(product.id)"></app-product>
